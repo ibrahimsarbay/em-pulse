@@ -382,7 +382,7 @@ function parseArticleXML(xml) {
   }
 
   // Makale tipi
-  const ptMatches = [...xml.matchAll(/<PublicationType>([^<]+)<\/PublicationType>/g)];
+  const ptMatches = [...xml.matchAll(/<PublicationType[^>]*>([^<]+)<\/PublicationType>/g)];
   const pubTypes = ptMatches.map(m => m[1]);
   const articleType = classifyType(pubTypes);
 
