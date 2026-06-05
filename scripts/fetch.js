@@ -19,100 +19,188 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = path.join(__dirname, '..', 'public', 'data');
-const OUT_FILE = path.join(DATA_DIR, 'pulse.json');
-const META_FILE = path.join(DATA_DIR, 'meta.json');
+const DATA_DIR   = path.join(__dirname, '..', 'public', 'data');
+const OUT_FILE   = path.join(DATA_DIR, 'pulse.json');
+const META_FILE  = path.join(DATA_DIR, 'meta.json');
+const SCIMAGO_CSV = path.join(__dirname, '..', 'data', 'scimago.csv');
 
-const DAYS_BACK = 7;
-const DELAY_MS = 400;
+const DAYS_BACK  = 7;
+const DELAY_MS   = 400;
 const BATCH_SIZE = 200;
 
-// ── Dergi listesi: ISSN → { name, tier, field } ───────────────────────────
-// Tier 1: IF > 5 (landmark journals)
-// Tier 2: IF 2–5 (solid specialty journals)  
-// Tier 3: IF < 2 (niche/regional)
+// ── Scimago SJR → Tier eşleşmesi ──────────────────────────────────────────
+// SJR > 1.0  → Tier 1 (yüksek etki)
+// SJR 0.4–1.0 → Tier 2 (orta etki)
+// SJR < 0.4  → Tier 3 (düşük/niş)
+function sjrToTier(sjr) {
+  if (sjr >= 1.0) return 1;
+  if (sjr >= 0.4) return 2;
+  return 3;
+}
+
+// ISSN'i normalize et: tire ve boşlukları kaldır, küçük harfe çevir
+function normalizeISSN(issn) {
+  return (issn || '').replace(/[-\s]/g, '').toLowerCase();
+}
+
+/** Scimago CSV'yi oku, ISSN → { sjr, title, quartile } map'i kur */
+async function loadScimago() {
+  const sjiMap = new Map(); // normalizedISSN → { sjr, title, quartile }
+  try {
+    const raw = await fs.readFile(SCIMAGO_CSV, 'utf-8');
+    const lines = raw.split('\n');
+
+    // Başlık satırını bul
+    const header = lines[0].split(';').map(h => h.trim().replace(/^"|"$/g, '').toLowerCase());
+    const colIssn      = header.findIndex(h => h === 'issn');
+    const colSjr       = header.findIndex(h => h.includes('sjr') && !h.includes('quartile') && !h.includes('best'));
+    const colTitle     = header.findIndex(h => h === 'title');
+    const colQuartile  = header.findIndex(h => h.includes('best quartile') || h.includes('sjr best'));
+
+    if (colIssn === -1 || colSjr === -1) {
+      console.warn('  ⚠ Scimago CSV: ISSN veya SJR sütunu bulunamadı — elle tier kullanılacak');
+      return sjiMap;
+    }
+
+    let matched = 0;
+    for (let i = 1; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (!line) continue;
+
+      // Noktalı virgülle ayır (tırnak içindeki virgüllere dikkat)
+      const cols = parseCsvLine(line, ';');
+
+      const issnRaw   = (cols[colIssn]   || '').replace(/^"|"$/g, '').trim();
+      const sjrRaw    = (cols[colSjr]    || '').replace(/^"|"$/g, '').replace(',', '.').trim();
+      const titleRaw  = (cols[colTitle]  || '').replace(/^"|"$/g, '').trim();
+      const quartile  = (cols[colQuartile] || '').replace(/^"|"$/g, '').trim();
+
+      const sjr = parseFloat(sjrRaw);
+      if (!issnRaw || isNaN(sjr)) continue;
+
+      // Scimago bazen birden fazla ISSN koyuyor (virgülle ayrılmış)
+      const issns = issnRaw.split(',').map(s => normalizeISSN(s));
+      for (const issn of issns) {
+        if (issn.length >= 7) {
+          sjiMap.set(issn, { sjr, title: titleRaw, quartile });
+          matched++;
+        }
+      }
+    }
+    console.log(`  ✓ Scimago: ${matched} ISSN kaydı yüklendi`);
+  } catch (e) {
+    console.warn(`  ⚠ Scimago CSV okunamadı (${e.message}) — elle tier kullanılacak`);
+  }
+  return sjiMap;
+}
+
+/** Basit CSV satır parser (tırnak içi ayraçları atlar) */
+function parseCsvLine(line, sep = ';') {
+  const cols = [];
+  let cur = '', inQ = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '"') { inQ = !inQ; }
+    else if (c === sep && !inQ) { cols.push(cur); cur = ''; }
+    else { cur += c; }
+  }
+  cols.push(cur);
+  return cols;
+}
+
+// ── Dergi listesi — tier artık Scimago'dan gelecek ────────────────────────
+// fallbackTier: Scimago'da bulunamazsa kullanılır
 const JOURNALS = [
-  // ── TIER 1 — Büyük EM dergileri ──────────────────
-  { issn: '0196-0644', name: 'Annals of Emergency Medicine', tier: 1 },
-  { issn: '1097-6760', name: 'Annals of Emergency Medicine (e)', tier: 1 },
-  { issn: '1532-1770', name: 'Resuscitation', tier: 1 },
-  { issn: '0300-9572', name: 'Resuscitation', tier: 1 },
-  { issn: '0735-6757', name: 'American Journal of Emergency Medicine', tier: 1 },
-  { issn: '1931-3543', name: 'CHEST', tier: 1 },
-  { issn: '0012-3692', name: 'CHEST', tier: 1 },
-  { issn: '2165-8048', name: 'Academic Emergency Medicine', tier: 1 },
-  { issn: '1553-2712', name: 'Academic Emergency Medicine', tier: 1 },
-  { issn: '1556-3316', name: 'Emergency Medicine Clinics of NA', tier: 1 },
-
-  // ── TIER 2 — Güçlü EM/YBÜ dergileri ─────────────
-  { issn: '1472-0205', name: 'Emergency Medicine Journal', tier: 2 },
-  { issn: '1471-227X', name: 'BMC Emergency Medicine', tier: 2 },
-  { issn: '0736-4679', name: 'Journal of Emergency Medicine', tier: 2 },
-  { issn: '1090-1280', name: 'Journal of Emergency Medicine (e)', tier: 2 },
-  { issn: '2057-5858', name: 'BMJ Open Emergency Medicine', tier: 2 },
-  { issn: '1865-1372', name: 'International Journal of Emergency Medicine', tier: 2 },
-  { issn: '2211-4203', name: 'European Journal of Emergency Medicine', tier: 2 },
-  { issn: '0969-9546', name: 'European Journal of Emergency Medicine', tier: 2 },
-  { issn: '1742-6731', name: 'Emergency Medicine Australasia', tier: 2 },
-  { issn: '2588-9834', name: 'Turkish Journal of Emergency Medicine', tier: 2 },
-  { issn: '2452-2473', name: 'Turkish Journal of Emergency Medicine', tier: 2 },
-  { issn: '1078-0998', name: 'Pediatric Emergency Care', tier: 2 },
-  { issn: '0749-5161', name: 'Prehospital Emergency Care', tier: 2 },
-  { issn: '1090-3127', name: 'Prehospital Emergency Care (e)', tier: 2 },
-  { issn: '0090-3493', name: 'Critical Care Medicine', tier: 1 },
-  { issn: '1364-8535', name: 'Critical Care', tier: 1 },
-  { issn: '1466-609X', name: 'Critical Care (e)', tier: 1 },
-  { issn: '0342-4642', name: 'Intensive Care Medicine', tier: 1 },
-  { issn: '1432-1238', name: 'Intensive Care Medicine (e)', tier: 1 },
-  { issn: '0003-4932', name: 'Annals of Surgery', tier: 1 },
-  { issn: '1528-1140', name: 'Annals of Surgery (e)', tier: 1 },
-  { issn: '2168-6254', name: 'JAMA Surgery', tier: 1 },
-
-  // ── TIER 2 — Göğüs cerrahisi / pulmoner ─────────
-  { issn: '0003-4975', name: 'Annals of Thoracic Surgery', tier: 2 },
-  { issn: '1552-6259', name: 'Annals of Thoracic Surgery (e)', tier: 2 },
-  { issn: '1010-7940', name: 'European J Cardiothoracic Surgery', tier: 2 },
-  { issn: '1873-734X', name: 'European J Cardiothoracic Surgery (e)', tier: 2 },
-  { issn: '1547-4127', name: 'Thoracic Surgery Clinics', tier: 2 },
-  { issn: '1547-4135', name: 'Thoracic Surgery Clinics (e)', tier: 2 },
-  { issn: '0022-5223', name: 'J Thoracic & Cardiovascular Surgery', tier: 2 },
-  { issn: '1569-9293', name: 'Interactive CardioVascular & Thoracic Surgery', tier: 2 },
-  { issn: '0040-6376', name: 'Thorax', tier: 1 },
-  { issn: '1468-3296', name: 'Thorax (e)', tier: 1 },
-
-  // ── TIER 2 — Travma ─────────────────────────────
-  { issn: '2163-0763', name: 'Journal of Trauma & Acute Care Surgery', tier: 1 },
-  { issn: '0020-1383', name: 'Injury', tier: 2 },
-  { issn: '1879-0267', name: 'Injury (e)', tier: 2 },
-  { issn: '1526-9523', name: 'World J Emergency Surgery', tier: 2 },
-
-  // ── TIER 2 — Toksikoloji ────────────────────────
-  { issn: '1556-3650', name: 'Clinical Toxicology', tier: 2 },
-  { issn: '1532-4117', name: 'Clinical Toxicology (e)', tier: 2 },
-
-  // ── TIER 2 — Kardiyoloji/Nöroloji (acil kesişim) ──
-  { issn: '0039-2499', name: 'Stroke', tier: 1 },
-  { issn: '1524-4628', name: 'Stroke (e)', tier: 1 },
-  { issn: '0009-7322', name: 'Circulation', tier: 1 },
-  { issn: '1524-4539', name: 'Circulation (e)', tier: 1 },
-
-  // ── TIER 3 — Bölgesel/Niş EM dergileri ──────────
-  { issn: '2149-9934', name: 'Eurasian J Emergency Medicine', tier: 3 },
-  { issn: '2146-6858', name: 'Eurasian J Emergency Medicine (e)', tier: 3 },
-  { issn: '1998-3549', name: 'Hong Kong J Emergency Medicine', tier: 3 },
-  { issn: '1024-8714', name: 'Hong Kong J Emergency Medicine (e)', tier: 3 },
-  { issn: '0974-2700', name: 'J Emergencies Trauma & Shock', tier: 3 },
-  { issn: '2008-136X', name: 'Emergency (Iran)', tier: 3 },
-  { issn: '1306-3111', name: 'Turkish Journal of Trauma & Emergency Surgery', tier: 3 },
-  { issn: '1307-7945', name: 'Ulus Travma Acil Cerrahi Dergisi', tier: 3 },
+  // EM dergileri
+  { issn: '0196-0644', name: 'Annals of Emergency Medicine', fallbackTier: 1 },
+  { issn: '1097-6760', name: 'Annals of Emergency Medicine', fallbackTier: 1 },
+  { issn: '1532-1770', name: 'Resuscitation', fallbackTier: 1 },
+  { issn: '0300-9572', name: 'Resuscitation', fallbackTier: 1 },
+  { issn: '0735-6757', name: 'American Journal of Emergency Medicine', fallbackTier: 1 },
+  { issn: '1931-3543', name: 'CHEST', fallbackTier: 1 },
+  { issn: '0012-3692', name: 'CHEST', fallbackTier: 1 },
+  { issn: '2165-8048', name: 'Academic Emergency Medicine', fallbackTier: 1 },
+  { issn: '1553-2712', name: 'Academic Emergency Medicine', fallbackTier: 1 },
+  { issn: '1556-3316', name: 'Emergency Medicine Clinics of NA', fallbackTier: 2 },
+  { issn: '1472-0205', name: 'Emergency Medicine Journal', fallbackTier: 2 },
+  { issn: '1471-227X', name: 'BMC Emergency Medicine', fallbackTier: 2 },
+  { issn: '0736-4679', name: 'Journal of Emergency Medicine', fallbackTier: 2 },
+  { issn: '1090-1280', name: 'Journal of Emergency Medicine', fallbackTier: 2 },
+  { issn: '2057-5858', name: 'BMJ Open Emergency Medicine', fallbackTier: 2 },
+  { issn: '1865-1372', name: 'International Journal of Emergency Medicine', fallbackTier: 2 },
+  { issn: '2211-4203', name: 'European Journal of Emergency Medicine', fallbackTier: 2 },
+  { issn: '0969-9546', name: 'European Journal of Emergency Medicine', fallbackTier: 2 },
+  { issn: '1742-6731', name: 'Emergency Medicine Australasia', fallbackTier: 2 },
+  { issn: '2588-9834', name: 'Turkish Journal of Emergency Medicine', fallbackTier: 2 },
+  { issn: '2452-2473', name: 'Turkish Journal of Emergency Medicine', fallbackTier: 2 },
+  { issn: '1078-0998', name: 'Pediatric Emergency Care', fallbackTier: 2 },
+  { issn: '0749-5161', name: 'Prehospital Emergency Care', fallbackTier: 2 },
+  { issn: '1090-3127', name: 'Prehospital Emergency Care', fallbackTier: 2 },
+  // YBÜ
+  { issn: '0090-3493', name: 'Critical Care Medicine', fallbackTier: 1 },
+  { issn: '1364-8535', name: 'Critical Care', fallbackTier: 1 },
+  { issn: '1466-609X', name: 'Critical Care', fallbackTier: 1 },
+  { issn: '0342-4642', name: 'Intensive Care Medicine', fallbackTier: 1 },
+  { issn: '1432-1238', name: 'Intensive Care Medicine', fallbackTier: 1 },
+  // Cerrahi
+  { issn: '0003-4932', name: 'Annals of Surgery', fallbackTier: 1 },
+  { issn: '1528-1140', name: 'Annals of Surgery', fallbackTier: 1 },
+  { issn: '2168-6254', name: 'JAMA Surgery', fallbackTier: 1 },
+  // Göğüs cerrahisi
+  { issn: '0003-4975', name: 'Annals of Thoracic Surgery', fallbackTier: 2 },
+  { issn: '1552-6259', name: 'Annals of Thoracic Surgery', fallbackTier: 2 },
+  { issn: '1010-7940', name: 'European J Cardiothoracic Surgery', fallbackTier: 2 },
+  { issn: '1873-734X', name: 'European J Cardiothoracic Surgery', fallbackTier: 2 },
+  { issn: '1547-4127', name: 'Thoracic Surgery Clinics', fallbackTier: 2 },
+  { issn: '1547-4135', name: 'Thoracic Surgery Clinics', fallbackTier: 2 },
+  { issn: '0022-5223', name: 'J Thoracic & Cardiovascular Surgery', fallbackTier: 2 },
+  { issn: '1569-9293', name: 'Interactive CardioVascular & Thoracic Surgery', fallbackTier: 2 },
+  { issn: '0040-6376', name: 'Thorax', fallbackTier: 1 },
+  { issn: '1468-3296', name: 'Thorax', fallbackTier: 1 },
+  // Travma
+  { issn: '2163-0763', name: 'Journal of Trauma & Acute Care Surgery', fallbackTier: 1 },
+  { issn: '0020-1383', name: 'Injury', fallbackTier: 2 },
+  { issn: '1879-0267', name: 'Injury', fallbackTier: 2 },
+  { issn: '1526-9523', name: 'World J Emergency Surgery', fallbackTier: 2 },
+  // Toksikoloji
+  { issn: '1556-3650', name: 'Clinical Toxicology', fallbackTier: 2 },
+  { issn: '1532-4117', name: 'Clinical Toxicology', fallbackTier: 2 },
+  // Kardiyoloji/Nöroloji
+  { issn: '0039-2499', name: 'Stroke', fallbackTier: 1 },
+  { issn: '1524-4628', name: 'Stroke', fallbackTier: 1 },
+  { issn: '0009-7322', name: 'Circulation', fallbackTier: 1 },
+  { issn: '1524-4539', name: 'Circulation', fallbackTier: 1 },
+  // Bölgesel/Niş
+  { issn: '2149-9934', name: 'Eurasian J Emergency Medicine', fallbackTier: 3 },
+  { issn: '2146-6858', name: 'Eurasian J Emergency Medicine', fallbackTier: 3 },
+  { issn: '1998-3549', name: 'Hong Kong J Emergency Medicine', fallbackTier: 3 },
+  { issn: '1024-8714', name: 'Hong Kong J Emergency Medicine', fallbackTier: 3 },
+  { issn: '0974-2700', name: 'J Emergencies Trauma & Shock', fallbackTier: 3 },
+  { issn: '2008-136X', name: 'Emergency (Iran)', fallbackTier: 3 },
+  { issn: '1306-3111', name: 'Turkish Journal of Trauma & Emergency Surgery', fallbackTier: 3 },
+  { issn: '1307-7945', name: 'Ulus Travma Acil Cerrahi Dergisi', fallbackTier: 3 },
 ];
 
-// ISSN → journal bilgisi lookup
-const JOURNAL_MAP = new Map();
-JOURNALS.forEach(j => JOURNAL_MAP.set(j.issn, j));
+// ISSN → journal bilgisi lookup (Scimago yüklendikten sonra tier eklenir)
+let JOURNAL_MAP = new Map();
 
 // Benzersiz ISSN listesi (sorgu için)
 const UNIQUE_ISSNS = [...new Set(JOURNALS.map(j => j.issn))];
+
+/** JOURNAL_MAP'i Scimago verileriyle kur */
+function buildJournalMap(scimagoMap) {
+  let found = 0, fallback = 0;
+  JOURNAL_MAP = new Map();
+  for (const j of JOURNALS) {
+    const normIssn = normalizeISSN(j.issn);
+    const scimago  = scimagoMap.get(normIssn);
+    const tier     = scimago ? sjrToTier(scimago.sjr) : j.fallbackTier;
+    const sjr      = scimago?.sjr ?? null;
+    if (scimago) found++; else fallback++;
+    JOURNAL_MAP.set(j.issn, { ...j, tier, sjr });
+  }
+  console.log(`  ✓ Dergi eşleşmesi: ${found} Scimago'dan, ${fallback} fallback'ten`);
+}
 
 // ── Yardımcı fonksiyonlar ──────────────────────────────────────────────────
 
@@ -310,6 +398,7 @@ function parseArticleXML(xml) {
   const meshTerms = meshMatches.slice(0, 6).map(m => m[1]);
 
   const tier = journal?.tier ?? 3;
+  const sjr  = journal?.sjr  ?? null;
 
   const article = {
     pmid,
@@ -317,6 +406,7 @@ function parseArticleXML(xml) {
     authors,
     journal: journalTitle,
     journalTier: tier,
+    journalSJR: sjr,
     articleType,
     pubDate,
     abstract,
@@ -340,6 +430,12 @@ async function main() {
 
   // Data klasörünü oluştur
   await fs.mkdir(DATA_DIR, { recursive: true });
+
+  // 0. Scimago CSV'yi yükle, JOURNAL_MAP'i kur
+  console.log('  📊 Scimago verileri yükleniyor...');
+  const scimagoMap = await loadScimago();
+  buildJournalMap(scimagoMap);
+  console.log('');
 
   // Son güncelleme kontrolü
   if (!force) {
