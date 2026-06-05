@@ -1,0 +1,13 @@
+{
+  "name": "em-pulse",
+  "version": "1.0.0",
+  "description": "Acil tıp makale radarı — Derin Soluk",
+  "type": "module",
+  "scripts": {
+    "fetch": "node scripts/fetch.js",
+    "fetch:force": "node scripts/fetch.js --force"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}

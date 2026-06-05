@@ -1,0 +1,38 @@
+name: EM Pulse — Güncelle & Deploy
+
+on:
+  schedule:
+    - cron: '0 4 * * *'   # Her gün 04:00 UTC (sabah 07:00 TR)
+  workflow_dispatch:        # Elle tetikleme (Actions → Run workflow)
+
+jobs:
+  fetch-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Kodu çek
+        uses: actions/checkout@v4
+
+      - name: Node.js kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Bağımlılıkları yükle
+        run: npm ci
+
+      - name: PubMed verisi çek
+        run: node scripts/fetch.js --force
+
+      - name: Hosting'e FTP ile deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:      ${{ secrets.FTP_SERVER }}
+          username:    ${{ secrets.FTP_USERNAME }}
+          password:    ${{ secrets.FTP_PASSWORD }}
+          server-dir:  ${{ secrets.FTP_REMOTE_DIR }}
+          local-dir:   ./public/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**

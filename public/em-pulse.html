@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EM Pulse — Acil Tıp Makale Radarı | Derin Soluk</title>
+<meta name="description" content="Son 7 günün acil tıp makaleleri, etki skoru sıralamasıyla. Derin Soluk.">
+<meta name="author" content="İbrahim Sarbay, MD">
+<meta property="og:title" content="EM Pulse — Acil Tıp Makale Radarı">
+<meta property="og:description" content="Son 7 günün acil tıp makaleleri, etki skoru sıralamasıyla.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #0c0e0f;
+  --surface: #141618;
+  --card:    #181b1d;
+  --border:  #242729;
+  --border2: #1e2124;
+  --ink:     #e8eaeb;
+  --mid:     #8a9099;
+  --dim:     #4a5059;
+  --serif:   'Instrument Serif', Georgia, serif;
+  --mono:    'DM Mono', ui-monospace, monospace;
+  --sans:    'DM Sans', system-ui, sans-serif;
+
+  /* tier renkleri */
+  --t1:      #f0c060;
+  --t1-dim:  rgba(240,192,96,.12);
+  --t2:      #7ecfb3;
+  --t2-dim:  rgba(126,207,179,.10);
+  --t3:      #6ea8d8;
+  --t3-dim:  rgba(110,168,216,.10);
+
+  /* tip etiket renkleri */
+  --meta:    #d47fe6;
+  --rct:     #f0c060;
+  --review:  #7ecfb3;
+  --guide:   #f07060;
+  --orig:    #8a9099;
+
+  /* pulse aksan */
+  --pulse:   #e8484a;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(800px 600px at 90% -10%, rgba(232,72,74,.04), transparent 55%),
+    radial-gradient(600px 500px at -5% 80%, rgba(240,192,96,.03), transparent 55%);
+}
+
+/* ── NAV ─────────────────────────────────────────────── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem clamp(1.25rem, 5vw, 3rem);
+  border-bottom: 1px solid var(--border2);
+  position: sticky;
+  top: 0;
+  background: rgba(12,14,15,.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 100;
+}
+.nav-brand {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -.01em;
+}
+.nav-brand em { color: var(--mid); font-style: italic; }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.nav-link {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--dim);
+  text-decoration: none;
+  transition: color .15s;
+}
+.nav-link:hover { color: var(--mid); }
+.nav-link.active { color: var(--pulse); }
+
+.live-dot {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .08em;
+  color: var(--dim);
+}
+.live-dot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pulse);
+  animation: blink 2.4s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+/* ── HERO ────────────────────────────────────────────── */
+.hero {
+  padding: clamp(2.5rem,6vw,4.5rem) clamp(1.25rem,5vw,3rem) 0;
+  max-width: 900px;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--pulse);
+  margin-bottom: 1.1rem;
+}
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem,6vw,4.2rem);
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--mid);
+}
+.hero-sub {
+  font-size: clamp(.9rem,1.5vw,1.05rem);
+  color: var(--mid);
+  line-height: 1.75;
+  max-width: 520px;
+  font-weight: 300;
+}
+
+/* ── STATS BAR ───────────────────────────────────────── */
+.stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: clamp(2rem,4vw,3rem) 0;
+}
+.stat {
+  flex: 1;
+  min-width: 100px;
+  padding: 1.1rem clamp(1rem,3vw,2rem);
+  border-right: 1px solid var(--border);
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--mono);
+  font-size: clamp(1.4rem,3vw,1.9rem);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -.02em;
+}
+.stat-num.pulse { color: var(--pulse); }
+.stat-lbl {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-top: .3rem;
+}
+
+/* ── LAYOUT ──────────────────────────────────────────── */
+.wrap {
+  padding: 0 clamp(1.25rem,5vw,3rem);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .main-grid { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+}
+
+/* ── SECTION HEADER ──────────────────────────────────── */
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.section-label {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--dim);
+  white-space: nowrap;
+}
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── ARTICLE OF WEEK ─────────────────────────────────── */
+.aow {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.75rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .2s;
+}
+.aow::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--pulse);
+}
+.aow:hover { border-color: #2e3235; }
+.aow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--pulse);
+  margin-bottom: 1rem;
+}
+.aow-badge::before {
+  content: '★';
+  font-size: .7rem;
+}
+.aow-title {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem,2.2vw,1.35rem);
+  line-height: 1.4;
+  color: var(--ink);
+  margin-bottom: .75rem;
+}
+.aow-title a {
+  color: inherit;
+  text-decoration: none;
+}
+.aow-title a:hover { color: var(--t1); }
+.aow-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem .75rem;
+  margin-bottom: .9rem;
+}
+.aow-abstract {
+  font-size: .875rem;
+  color: var(--mid);
+  line-height: 1.7;
+  font-weight: 300;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.aow-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border2);
+}
+.score-pill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .06em;
+  color: var(--dim);
+}
+.score-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.score-bar {
+  width: 80px;
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.score-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pulse), #f0804a);
+  border-radius: 2px;
+  transition: width .6s ease;
+}
+
+/* ── FILTER BAR ──────────────────────────────────────── */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1.25rem;
+}
+.filter-btn {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .35rem .75rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--dim);
+  cursor: pointer;
+  transition: all .15s;
+}
+.filter-btn:hover { border-color: var(--mid); color: var(--mid); }
+.filter-btn.active {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+
+/* ── ARTICLE LIST ─────────────────────────────────────── */
+.article-list { display: flex; flex-direction: column; gap: .5rem; }
+
+.article-card {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 3px;
+  padding: 1.1rem 1.25rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .75rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .15s, background .15s;
+  position: relative;
+}
+.article-card:hover {
+  border-color: var(--border);
+  background: #1c1f21;
+}
+.article-card.tier-1::before,
+.article-card.tier-2::before,
+.article-card.tier-3::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 2px; height: 100%;
+  border-radius: 1px 0 0 1px;
+}
+.article-card.tier-1::before { background: var(--t1); }
+.article-card.tier-2::before { background: var(--t2); }
+.article-card.tier-3::before { background: var(--t3); }
+
+.article-rank {
+  font-family: var(--mono);
+  font-size: .7rem;
+  color: var(--dim);
+  padding-top: 2px;
+  min-width: 24px;
+  text-align: right;
+}
+
+.article-title {
+  font-family: var(--serif);
+  font-size: clamp(.95rem,1.6vw,1.05rem);
+  line-height: 1.4;
+  color: var(--ink);
+  margin-bottom: .45rem;
+}
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .35rem .6rem;
+}
+.meta-journal {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .04em;
+  color: var(--mid);
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.meta-date {
+  font-family: var(--mono);
+  font-size: .63rem;
+  color: var(--dim);
+}
+.meta-authors {
+  font-size: .72rem;
+  color: var(--dim);
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* Tier badge */
+.tier-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .06em;
+  padding: 1px 5px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+.tier-badge.t1 { background: var(--t1-dim); color: var(--t1); }
+.tier-badge.t2 { background: var(--t2-dim); color: var(--t2); }
+.tier-badge.t3 { background: var(--t3-dim); color: var(--t3); }
+
+/* Tip badge */
+.type-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .04em;
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+.type-badge.meta-analysis  { background: rgba(212,127,230,.12); color: var(--meta); }
+.type-badge.systematic-review { background: rgba(212,127,230,.10); color: var(--meta); }
+.type-badge.rct            { background: rgba(240,192,96,.12);  color: var(--rct); }
+.type-badge.clinical-trial { background: rgba(240,192,96,.10);  color: var(--rct); }
+.type-badge.guideline      { background: rgba(240,112,96,.14);  color: var(--guide); }
+.type-badge.review         { background: rgba(126,207,179,.10); color: var(--review); }
+.type-badge.original       { background: rgba(138,144,153,.10); color: var(--orig); }
+.type-badge.case-report    { background: rgba(138,144,153,.08); color: var(--dim); }
+.type-badge.editorial      { background: rgba(138,144,153,.08); color: var(--dim); }
+.type-badge.letter         { background: rgba(138,144,153,.08); color: var(--dim); }
+
+/* Score mini */
+.score-mini {
+  font-family: var(--mono);
+  font-size: .6rem;
+  color: var(--dim);
+  margin-left: auto;
+  align-self: center;
+  white-space: nowrap;
+}
+
+/* ── SIDEBAR ──────────────────────────────────────────── */
+.sidebar {
+  position: sticky;
+  top: 80px;
+}
+.sidebar-card {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 3px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+.sidebar-title {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 1rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid var(--border2);
+}
+.dist-row {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: .55rem;
+}
+.dist-label {
+  font-family: var(--mono);
+  font-size: .65rem;
+  color: var(--mid);
+  width: 90px;
+  flex-shrink: 0;
+}
+.dist-bar-wrap {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.dist-bar { height: 100%; border-radius: 2px; }
+.dist-count {
+  font-family: var(--mono);
+  font-size: .62rem;
+  color: var(--dim);
+  min-width: 22px;
+  text-align: right;
+}
+
+.keyword-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+}
+.keyword-tag {
+  font-family: var(--mono);
+  font-size: .62rem;
+  padding: 3px 7px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--dim);
+  cursor: pointer;
+  transition: all .12s;
+}
+.keyword-tag:hover { border-color: var(--mid); color: var(--mid); }
+
+/* ── FOOTER ───────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border2);
+  padding: 1.5rem clamp(1.25rem,5vw,3rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 3rem;
+}
+.footer-l {
+  font-family: var(--mono);
+  font-size: .65rem;
+  color: var(--dim);
+}
+.footer-l strong { color: var(--mid); font-weight: 500; }
+.footer-r {
+  display: flex;
+  gap: 1.25rem;
+}
+.footer-r a {
+  font-family: var(--mono);
+  font-size: .63rem;
+  color: var(--dim);
+  text-decoration: none;
+  transition: color .15s;
+}
+.footer-r a:hover { color: var(--mid); }
+
+/* ── LOADING / ERROR ─────────────────────────────────── */
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1rem;
+  text-align: center;
+  gap: 1rem;
+}
+.status-icon {
+  font-size: 2rem;
+  animation: spin 1.2s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.status-text {
+  font-family: var(--mono);
+  font-size: .75rem;
+  color: var(--dim);
+  letter-spacing: .08em;
+}
+
+/* ── PAGINATION ───────────────────────────────────────── */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  padding: 2rem 0 1rem;
+}
+.page-btn {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .04em;
+  padding: .45rem .9rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--mid);
+  cursor: pointer;
+  transition: all .15s;
+}
+.page-btn:hover:not(:disabled) { border-color: var(--mid); }
+.page-btn:disabled { opacity: .3; cursor: default; }
+.page-btn.current {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+.page-info {
+  font-family: var(--mono);
+  font-size: .65rem;
+  color: var(--dim);
+}
+
+/* ── ANIMATIONS ──────────────────────────────────────── */
+.fade-in { opacity: 0; animation: fadeUp .45s ease forwards; }
+.fade-in:nth-child(1)  { animation-delay: .00s; }
+.fade-in:nth-child(2)  { animation-delay: .03s; }
+.fade-in:nth-child(3)  { animation-delay: .06s; }
+.fade-in:nth-child(4)  { animation-delay: .09s; }
+.fade-in:nth-child(5)  { animation-delay: .12s; }
+.fade-in:nth-child(6)  { animation-delay: .15s; }
+.fade-in:nth-child(7)  { animation-delay: .18s; }
+.fade-in:nth-child(8)  { animation-delay: .21s; }
+.fade-in:nth-child(9)  { animation-delay: .24s; }
+.fade-in:nth-child(10) { animation-delay: .27s; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 520px) {
+  .stats-bar { flex-direction: row; overflow-x: auto; }
+  .stat { min-width: 80px; border-bottom: none; }
+  .article-card { grid-template-columns: 1fr; gap: .5rem; }
+  .article-rank { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="/">Derin <em>Soluk</em></a>
+  <div class="nav-right">
+    <a class="nav-link" href="/em-popular.html">EM Popular</a>
+    <a class="nav-link active" href="/em-pulse.html">EM Pulse</a>
+    <a class="nav-link" href="/hakkinda.html">Hakkında</a>
+    <span class="live-dot" id="live-label">Yükleniyor</span>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="hero fade-in">
+    <p class="hero-eyebrow">Makale Radarı</p>
+    <h1 class="hero-title">EM <em>Pulse</em></h1>
+    <p class="hero-sub">
+      Son 7 günde yayımlanan acil tıp makaleleri, etki skoruna göre sıralanmış.
+      Her sabah otomatik güncellenir.
+    </p>
+  </div>
+
+  <div class="stats-bar fade-in" id="stats-bar">
+    <div class="stat">
+      <div class="stat-num pulse" id="stat-total">—</div>
+      <div class="stat-lbl">Makale</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-journals">—</div>
+      <div class="stat-lbl">Dergi</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-top">—</div>
+      <div class="stat-lbl">Top Skor</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-days">7</div>
+      <div class="stat-lbl">Gün</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-updated">—</div>
+      <div class="stat-lbl">Güncellendi</div>
+    </div>
+  </div>
+
+  <div id="content">
+    <div class="status">
+      <div class="status-icon">◌</div>
+      <p class="status-text">Veri yükleniyor...</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-l">
+    <strong>Derin Soluk</strong> — İbrahim Sarbay, MD ·
+    Veri: <a href="https://eutils.ncbi.nlm.nih.gov/" target="_blank" rel="noopener" style="color:inherit">NCBI PubMed eutils</a>
+  </span>
+  <div class="footer-r">
+    <a href="https://twitter.com/ibrahimsarbay" target="_blank" rel="noopener">@ibrahimsarbay</a>
+    <a href="https://derinsoluk.com" target="_blank" rel="noopener">derinsoluk.com</a>
+  </div>
+</footer>
+
+<script>
+// ── Yardımcı ──────────────────────────────────────────────────────────────
+
+const TYPE_LABELS = {
+  'meta-analysis':     'Meta-analiz',
+  'systematic-review': 'Sistematik derleme',
+  'rct':               'RKÇ',
+  'clinical-trial':    'Klinik çalışma',
+  'guideline':         'Kılavuz',
+  'review':            'Derleme',
+  'original':          'Özgün araştırma',
+  'case-report':       'Olgu sunumu',
+  'editorial':         'Editoryal',
+  'letter':            'Mektup',
+  'comment':           'Yorum',
+};
+const TYPE_ORDER = ['guideline','meta-analysis','systematic-review','rct','clinical-trial','review','original','case-report','editorial','letter','comment'];
+
+function typeLabel(t) { return TYPE_LABELS[t] || t; }
+function tierClass(n) { return `t${n}`; }
+function tierLabel(n) { return `Tier ${n}`; }
+
+function relativeDate(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  const now = new Date();
+  const days = Math.floor((now - d) / 86400000);
+  if (days === 0) return 'Bugün';
+  if (days === 1) return 'Dün';
+  if (days < 7)  return `${days} gün önce`;
+  return d.toLocaleDateString('tr-TR', { day:'numeric', month:'short' });
+}
+
+function scoreWidth(score, maxScore) {
+  return Math.max(6, Math.round((score / Math.max(maxScore, 1)) * 100));
+}
+
+// ── State ─────────────────────────────────────────────────────────────────
+let state = {
+  all: [],
+  filtered: [],
+  activeFilter: 'all',
+  activeKeyword: null,
+  page: 0,
+  pageSize: 25,
+  maxScore: 100,
+};
+
+// ── Render ─────────────────────────────────────────────────────────────────
+
+function renderStats(data) {
+  document.getElementById('stat-total').textContent    = data.stats.total;
+  document.getElementById('stat-journals').textContent = data.journalCount;
+  document.getElementById('stat-top').textContent      = data.stats.topScore;
+  const d = new Date(data.generatedAt);
+  document.getElementById('stat-updated').textContent  =
+    d.toLocaleTimeString('tr-TR', { hour:'2-digit', minute:'2-digit' });
+  document.getElementById('live-label').textContent = 'Canlı';
+}
+
+function renderAOW(article, maxScore) {
+  if (!article) return '';
+  const sw = scoreWidth(article.impactScore, maxScore);
+  return `
+    <div class="aow">
+      <div class="aow-badge">Haftanın Makalesi</div>
+      <div class="aow-title">
+        <a href="${article.url}" target="_blank" rel="noopener">${article.title}</a>
+      </div>
+      <div class="aow-meta">
+        <span class="tier-badge ${tierClass(article.journalTier)}">${tierLabel(article.journalTier)}</span>
+        <span class="type-badge ${article.articleType}">${typeLabel(article.articleType)}</span>
+        <span class="meta-journal">${article.journal}</span>
+        <span class="meta-date">${relativeDate(article.pubDate)}</span>
+      </div>
+      ${article.abstract ? `<p class="aow-abstract">${article.abstract}</p>` : ''}
+      <div class="aow-footer">
+        <span class="meta-authors">${article.authors.join(', ')}</span>
+        <div class="score-bar-wrap">
+          <span class="score-pill">Etki ${article.impactScore}</span>
+          <div class="score-bar"><div class="score-bar-fill" style="width:${sw}%"></div></div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderArticle(article, rank, maxScore) {
+  const sw = scoreWidth(article.impactScore, maxScore);
+  return `
+    <a class="article-card tier-${article.journalTier} fade-in"
+       href="${article.url}" target="_blank" rel="noopener">
+      <div class="article-rank">${String(rank).padStart(2,'0')}</div>
+      <div>
+        <div class="article-title">${article.title}</div>
+        <div class="article-meta">
+          <span class="tier-badge ${tierClass(article.journalTier)}">${tierLabel(article.journalTier)}</span>
+          <span class="type-badge ${article.articleType}">${typeLabel(article.articleType)}</span>
+          <span class="meta-journal">${article.journal}</span>
+          <span class="meta-date">${relativeDate(article.pubDate)}</span>
+          <span class="meta-authors">${article.authors.slice(0,2).join(', ')}${article.authors.length > 2 ? ' et al.' : ''}</span>
+          <div class="score-bar-wrap" style="margin-left:auto">
+            <div class="score-bar" style="width:56px"><div class="score-bar-fill" style="width:${sw}%"></div></div>
+            <span class="score-mini">${article.impactScore}</span>
+          </div>
+        </div>
+      </div>
+    </a>`;
+}
+
+function renderTypeDistribution(articles) {
+  const counts = {};
+  articles.forEach(a => { counts[a.articleType] = (counts[a.articleType]||0)+1; });
+  const max = Math.max(...Object.values(counts), 1);
+  const colors = {
+    'guideline':'#f07060','meta-analysis':'#d47fe6','systematic-review':'#d47fe6',
+    'rct':'#f0c060','clinical-trial':'#f0c060','review':'#7ecfb3',
+    'original':'#8a9099','case-report':'#4a5059','editorial':'#4a5059',
+    'letter':'#4a5059','comment':'#4a5059'
+  };
+  return TYPE_ORDER
+    .filter(t => counts[t])
+    .map(t => `
+      <div class="dist-row">
+        <span class="dist-label">${typeLabel(t)}</span>
+        <div class="dist-bar-wrap">
+          <div class="dist-bar" style="width:${Math.round((counts[t]/max)*100)}%;background:${colors[t]||'#4a5059'}"></div>
+        </div>
+        <span class="dist-count">${counts[t]}</span>
+      </div>`).join('');
+}
+
+function renderTopKeywords(articles) {
+  const counts = {};
+  articles.forEach(a => {
+    [...(a.keywords||[]), ...(a.meshTerms||[])].forEach(k => {
+      const kn = k.trim();
+      if (kn.length > 3 && kn.length < 40)
+        counts[kn] = (counts[kn]||0)+1;
+    });
+  });
+  return Object.entries(counts)
+    .sort((a,b) => b[1]-a[1])
+    .slice(0, 30)
+    .map(([k]) => `<span class="keyword-tag" data-kw="${k}">${k}</span>`)
+    .join('');
+}
+
+function renderPagination(filtered, page, pageSize) {
+  const total = filtered.length;
+  const pages = Math.ceil(total / pageSize);
+  if (pages <= 1) return '';
+
+  let btns = '';
+  if (page > 0) btns += `<button class="page-btn" data-page="${page-1}">← Önceki</button>`;
+  btns += `<span class="page-info">${page+1} / ${pages}</span>`;
+  if (page < pages-1) btns += `<button class="page-btn" data-page="${page+1}">Sonraki →</button>`;
+
+  return `<div class="pagination">${btns}</div>`;
+}
+
+function applyFilter(type) {
+  state.activeFilter = type;
+  state.activeKeyword = null;
+  state.page = 0;
+  if (type === 'all') {
+    state.filtered = [...state.all];
+  } else if (type === 'tier1') {
+    state.filtered = state.all.filter(a => a.journalTier === 1);
+  } else {
+    state.filtered = state.all.filter(a => a.articleType === type);
+  }
+  renderContent();
+}
+
+function applyKeyword(kw) {
+  state.activeKeyword = kw;
+  state.activeFilter = 'all';
+  state.page = 0;
+  const kwLow = kw.toLowerCase();
+  state.filtered = state.all.filter(a =>
+    (a.keywords||[]).some(k => k.toLowerCase().includes(kwLow)) ||
+    (a.meshTerms||[]).some(k => k.toLowerCase().includes(kwLow)) ||
+    a.title.toLowerCase().includes(kwLow)
+  );
+  renderContent();
+}
+
+function renderContent() {
+  const { filtered, page, pageSize, maxScore, activeFilter } = state;
+  const start = page * pageSize;
+  const slice = filtered.slice(start, start + pageSize);
+
+  // Article of week (only on page 0, all filter)
+  let aowHTML = '';
+  if (page === 0 && state.all.length > 0 && activeFilter === 'all' && !state.activeKeyword) {
+    const aowArticle = state.all[0];
+    aowHTML = `
+      <div class="section-head fade-in">
+        <span class="section-label">Öne Çıkan</span>
+        <div class="section-rule"></div>
+      </div>
+      ${renderAOW(aowArticle, maxScore)}`;
+  }
+
+  // Filter bar
+  const filters = ['all','tier1','guideline','meta-analysis','rct','review','original'];
+  const filterLabels = {
+    'all':'Tümü','tier1':'Tier 1','guideline':'Kılavuz',
+    'meta-analysis':'Meta-analiz','rct':'RKÇ','review':'Derleme','original':'Özgün'
+  };
+  const filterBar = `
+    <div class="filter-bar fade-in">
+      ${filters.map(f => `
+        <button class="filter-btn${activeFilter===f&&!state.activeKeyword?' active':''}" data-filter="${f}">
+          ${filterLabels[f]}
+        </button>`).join('')}
+      ${state.activeKeyword ? `
+        <button class="filter-btn active" data-filter="all">
+          "${state.activeKeyword}" ✕
+        </button>` : ''}
+    </div>`;
+
+  // Section header
+  const listLabel = state.activeKeyword
+    ? `"${state.activeKeyword}" için ${filtered.length} sonuç`
+    : `${filtered.length} Makale`;
+
+  const sectionHead = `
+    <div class="section-head fade-in">
+      <span class="section-label">${listLabel}</span>
+      <div class="section-rule"></div>
+    </div>`;
+
+  // Articles
+  // Skip aow from list on page 0
+  const listArticles = (page === 0 && activeFilter === 'all' && !state.activeKeyword)
+    ? slice.filter(a => a.pmid !== state.all[0]?.pmid)
+    : slice;
+
+  const articleListHTML = `
+    <div class="article-list">
+      ${listArticles.map((a, i) => renderArticle(a, start + i + 1, maxScore)).join('')}
+    </div>`;
+
+  const paginationHTML = renderPagination(filtered, page, pageSize);
+
+  // Main grid
+  const sidebar = `
+    <aside class="sidebar fade-in">
+      <div class="sidebar-card">
+        <div class="sidebar-title">Makale Tipleri</div>
+        ${renderTypeDistribution(state.all)}
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-title">Popüler Konular</div>
+        <div class="keyword-list" id="keyword-list">
+          ${renderTopKeywords(state.all)}
+        </div>
+      </div>
+    </aside>`;
+
+  document.getElementById('content').innerHTML = `
+    ${aowHTML}
+    ${filterBar}
+    ${sectionHead}
+    <div class="main-grid">
+      <div>
+        ${articleListHTML}
+        ${paginationHTML}
+      </div>
+      ${sidebar}
+    </div>`;
+
+  // Event listeners
+  document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+    btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+  });
+  document.querySelectorAll('.page-btn[data-page]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.page = parseInt(btn.dataset.page);
+      renderContent();
+      window.scrollTo({ top: 200, behavior: 'smooth' });
+    });
+  });
+  document.querySelectorAll('.keyword-tag').forEach(tag => {
+    tag.addEventListener('click', () => applyKeyword(tag.dataset.kw));
+  });
+}
+
+// ── Veri yükle ──────────────────────────────────────────────────────────────
+async function loadData() {
+  try {
+    const res = await fetch(`data/pulse.json?t=${Date.now()}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    state.all      = data.articles || [];
+    state.filtered = [...state.all];
+    state.maxScore = data.stats?.topScore || 100;
+
+    renderStats(data);
+    renderContent();
+  } catch (e) {
+    document.getElementById('content').innerHTML = `
+      <div class="status">
+        <div class="status-icon" style="animation:none">✕</div>
+        <p class="status-text">Veri yüklenemedi — ${e.message}</p>
+      </div>`;
+    document.getElementById('live-label').textContent = 'Hata';
+    console.error('EM Pulse load error:', e);
+  }
+}
+
+loadData();
+</script>
+
+</body>
+</html>
