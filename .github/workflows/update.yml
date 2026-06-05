@@ -19,7 +19,7 @@ jobs:
           node-version: '20'
 
       - name: Bağımlılıkları yükle
-        run: npm ci
+        run: npm install
 
       - name: PubMed verisi çek
         run: node scripts/fetch.js --force
