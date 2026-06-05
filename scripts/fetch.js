@@ -213,25 +213,38 @@ function dateStr(d) {
 /** Makale tipini belirle — önce PubMed PT, sonra başlık fallback */
 function classifyType(ptList, title) {
   const pts = (ptList || []).map(p => p.toLowerCase());
-  if (pts.some(p => p.includes('meta-analysis'))) return 'meta-analysis';
-  if (pts.some(p => p.includes('systematic review'))) return 'systematic-review';
-  if (pts.some(p => p.includes('randomized controlled'))) return 'rct';
-  if (pts.some(p => p.includes('guideline') || p.includes('practice guideline'))) return 'guideline';
-  if (pts.some(p => p.includes('clinical trial'))) return 'clinical-trial';
-  if (pts.some(p => p.includes('review'))) return 'review';
-  if (pts.some(p => p.includes('case report'))) return 'case-report';
-  if (pts.some(p => p.includes('editorial'))) return 'editorial';
-  if (pts.some(p => p.includes('letter'))) return 'letter';
-  if (pts.some(p => p.includes('comment'))) return 'comment';
+  const t   = (title  || '').toLowerCase();
 
-  // PubMed henüz etiketlememişse başlıktan tespit et
-  const t = (title || '').toLowerCase();
-  if (t.includes('meta-analysis') || t.includes('meta analysis')) return 'meta-analysis';
-  if (t.includes('systematic review') || t.includes('systematic literature')) return 'systematic-review';
-  if (t.includes('randomized') || t.includes('randomised') || t.includes('rct')) return 'rct';
-  if (t.includes('clinical trial')) return 'clinical-trial';
-  if (t.includes('guideline') || t.includes('consensus statement') || t.includes('position statement')) return 'guideline';
-  if (t.includes('review of') || t.includes(': a review') || t.includes('narrative review') || t.includes('scoping review')) return 'review';
+  // En spesifik tipler önce — hem PubMed PT hem başlık birlikte kontrol
+  if (pts.some(p => p.includes('meta-analysis')) ||
+      t.includes('meta-analysis') || t.includes('meta analysis')) return 'meta-analysis';
+
+  if (pts.some(p => p.includes('systematic review')) ||
+      t.includes('systematic review') || t.includes('systematic literature review') ||
+      t.includes('scoping review')) return 'systematic-review';
+
+  if (pts.some(p => p.includes('randomized controlled')) ||
+      t.includes('randomized controlled') || t.includes('randomised controlled') ||
+      t.includes(': a randomized') || t.includes(': a randomised')) return 'rct';
+
+  if (pts.some(p => p.includes('practice guideline') || p.includes('guideline')) ||
+      t.includes('guideline') || t.includes('consensus statement') ||
+      t.includes('position statement') || t.includes('expert panel')) return 'guideline';
+
+  if (pts.some(p => p.includes('clinical trial')) ||
+      t.includes('clinical trial')) return 'clinical-trial';
+
+  // Genel review — spesifik tipler elenince
+  if (pts.some(p => p.includes('review')) ||
+      t.includes('narrative review') || t.includes(': a review') ||
+      t.includes('review of the literature') || t.includes('review of literature')) return 'review';
+
+  if (pts.some(p => p.includes('case report')) ||
+      t.includes('case report') || t.includes('a case of')) return 'case-report';
+
+  if (pts.some(p => p.includes('editorial'))) return 'editorial';
+  if (pts.some(p => p.includes('letter')))    return 'letter';
+  if (pts.some(p => p.includes('comment')))   return 'comment';
 
   return 'original';
 }
