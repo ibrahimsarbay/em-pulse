@@ -22,6 +22,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR   = path.join(__dirname, '..', 'public', 'data');
 const OUT_FILE   = path.join(DATA_DIR, 'pulse.json');
 const META_FILE  = path.join(DATA_DIR, 'meta.json');
+const HIST_FILE  = path.join(DATA_DIR, 'history.json');
 const SCIMAGO_CSV = path.join(__dirname, '..', 'data', 'scimago.csv');
 
 const DAYS_BACK  = 7;
@@ -461,6 +462,90 @@ function parseArticleXML(xml) {
   return article;
 }
 
+// ── Zirvedekiler arşivi ──────────────────────────────────────────────────
+
+/**
+ * Günün 1. sırasını history.json'a ekle.
+ * Aynı gün zaten kayıtlıysa güncelle, yoksa yeni giriş ekle.
+ * Çıktı formatı: ardışık günlerde aynı makale varsa tarih aralığı olarak birleştirilir.
+ */
+async function recordHistory(topArticle) {
+  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+
+  // Mevcut geçmişi oku
+  let history = [];
+  try {
+    history = JSON.parse(await fs.readFile(HIST_FILE, 'utf-8'));
+  } catch { /* ilk çalışma veya dosya yok */ }
+
+  // Bugün zaten kayıtlı mı?
+  const todayIdx = history.findIndex(h => h.date === today);
+  const entry = {
+    date: today,
+    pmid: topArticle.pmid,
+    title: topArticle.title,
+    journal: topArticle.journal,
+    score: topArticle.impactScore,
+    articleType: topArticle.articleType,
+    doi: topArticle.doi || null,
+    url: topArticle.url,
+  };
+
+  if (todayIdx > -1) {
+    history[todayIdx] = entry; // güncelle
+  } else {
+    history.push(entry);       // yeni gün
+  }
+
+  // Tarihe göre sırala (eskiden yeniye)
+  history.sort((a, b) => a.date.localeCompare(b.date));
+
+  // Ardışık günlerde aynı makaleyi birleştir → streaks dizisi
+  const streaks = [];
+  for (const h of history) {
+    const last = streaks[streaks.length - 1];
+    if (last && last.pmid === h.pmid && isConsecutiveDay(last.endDate, h.date)) {
+      // Aynı makale, ardışık gün → streak uzat
+      last.endDate = h.date;
+      last.days++;
+      last.score = Math.max(last.score, h.score); // en yüksek skoru tut
+    } else {
+      // Yeni streak
+      streaks.push({
+        pmid: h.pmid,
+        title: h.title,
+        journal: h.journal,
+        articleType: h.articleType,
+        doi: h.doi,
+        url: h.url,
+        score: h.score,
+        startDate: h.date,
+        endDate: h.date,
+        days: 1,
+      });
+    }
+  }
+
+  // Her ikisini de kaydet: ham veri (history) + birleştirilmiş (streaks)
+  const output = {
+    updatedAt: new Date().toISOString(),
+    totalDays: history.length,
+    raw: history,
+    streaks: streaks.reverse(), // yeniden eskiye
+  };
+
+  await fs.writeFile(HIST_FILE, JSON.stringify(output, null, 2), 'utf-8');
+  console.log(`  📜 Zirvedekiler: ${history.length} gün kaydı, ${streaks.length} farklı makale`);
+}
+
+/** İki tarihin ardışık gün olup olmadığını kontrol et */
+function isConsecutiveDay(dateStr1, dateStr2) {
+  const d1 = new Date(dateStr1);
+  const d2 = new Date(dateStr2);
+  const diff = (d2 - d1) / 86400000; // ms → gün
+  return diff === 1;
+}
+
 // ── Ana akış ───────────────────────────────────────────────────────────────
 
 async function main() {
@@ -558,6 +643,11 @@ async function main() {
     articleCount: articles.length,
     topScore: stats.topScore,
   }, null, 2), 'utf-8');
+
+  // 5. Zirvedekiler arşivi — günün 1. sırasını kaydet
+  if (articleOfWeek) {
+    await recordHistory(articleOfWeek);
+  }
 
   console.log(`  📊 İstatistikler:`);
   console.log(`     Toplam: ${stats.total} makale`);
