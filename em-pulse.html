@@ -3,12 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EM Pulse — Acil Tıp Makale Radarı | Derin Soluk</title>
-<meta name="description" content="Son 7 günün acil tıp makaleleri, etki skoru sıralamasıyla. Derin Soluk.">
+<title>EM Pulse — Acil Tıp ve Kritik Bakım Makale Radarı | Derin Soluk</title>
+<meta name="description" content="Son 7 günün acil tıp ve kritik bakım makaleleri, etki skoru sıralamasıyla. Derin Soluk.">
 <meta name="author" content="İbrahim Sarbay, MD">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKCFNRZ1WM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CKCFNRZ1WM');
+</script>
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -16,11 +26,11 @@
   --bg:       #ffffff;
   --surface:  #f8f8f6;
   --card:     #ffffff;
-  --border:   #e8e8e4;
+  --border:   #b7b7b7;
   --border2:  #f0f0ec;
   --ink:      #1a1a18;
   --mid:      #6b6b65;
-  --dim:      #a0a09a;
+  --dim:      #84847b;
   --serif:    'Lora', Georgia, serif;
   --mono:     'DM Mono', ui-monospace, monospace;
   --sans:     'Inter', system-ui, sans-serif;
@@ -159,7 +169,7 @@ nav {
   flex-wrap: wrap;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  margin: clamp(2rem, 4vw, 2.75rem) 0;
+  margin: clamp(1rem, 2vw, 1.75rem) 0;
 }
 .stat {
   flex: 1;
@@ -475,7 +485,7 @@ nav {
 .dist-bar-wrap {
   flex: 1;
   height: 3px;
-  background: var(--border);
+  background: var(--surface);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -610,6 +620,137 @@ footer {
   .article-rank { display: none; }
   .nav-link:not(.active) { display: none; }
 }
+
+/* ── ABOUT CARD ──────────────────────────────────── */
+.about-text {
+  font-size: .78rem;
+  color: var(--mid);
+  line-height: 1.7;
+  font-weight: 300;
+}
+.about-score {
+  margin-top: 1rem;
+  padding-top: .85rem;
+  border-top: 1px solid var(--border2);
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+.score-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.score-item {
+  font-family: var(--mono);
+  font-size: .62rem;
+  color: var(--mid);
+}
+.score-val {
+  font-family: var(--mono);
+  font-size: .62rem;
+  color: var(--pulse);
+  font-weight: 500;
+}
+/* ── HALL OF FAME ─────────────────────────────────── */
+.hof-section {
+  margin: 2.5rem 0 0;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+.hof-toggle {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.hof-toggle .section-label { cursor: pointer; }
+.hof-arrow {
+  font-size: .55rem;
+  color: var(--mid);
+  transition: transform .25s;
+}
+.hof-section.open .hof-arrow { transform: rotate(90deg); }
+.hof-body { display: none; }
+.hof-section.open .hof-body { display: block; }
+
+.hof-timeline { position: relative; padding-left: 20px; }
+.hof-timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px; top: 6px; bottom: 6px;
+  width: 1px;
+  background: var(--border);
+}
+.hof-entry { position: relative; padding: 0 0 1.25rem 16px; }
+.hof-entry:last-child { padding-bottom: 0; }
+.hof-entry::before {
+  content: '';
+  position: absolute;
+  left: -16px; top: 7px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--mid);
+  border: 2px solid var(--bg);
+}
+.hof-entry.streak::before { background: var(--pulse); }
+.hof-date {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .05em;
+  color: var(--mid);
+  margin-bottom: .3rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.hof-streak-badge {
+  font-size: .52rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--pulse);
+  background: var(--pulse-lt);
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+.hof-card {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  padding: .75rem .9rem;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+  transition: border-color .12s;
+}
+.hof-card:hover { border-color: var(--border); }
+.hof-title {
+  font-family: var(--sans);
+  font-size: .85rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--ink);
+  margin-bottom: .35rem;
+}
+.hof-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3rem .5rem;
+}
+.hof-empty {
+  font-family: var(--mono);
+  font-size: .7rem;
+  color: var(--mid);
+  text-align: center;
+  padding: 1.5rem 0;
+}
 </style>
 </head>
 <body>
@@ -617,9 +758,9 @@ footer {
 <nav>
   <a class="nav-brand" href="/">Derin <em>Soluk</em></a>
   <div class="nav-right">
-    <a class="nav-link" href="/em-popular.html">EM Popular</a>
-    <a class="nav-link active" href="/pulse/em-pulse.html">EM Pulse</a>
-    <a class="nav-link" href="/hakkinda.html">Hakkında</a>
+    <a class="nav-link" href="/empopular/">EM Popular</a>
+    <a class="nav-link active" href="/pulse/">EM Pulse</a>
+    <a class="nav-link" href="/about/">Hakkında</a>
     <span class="live-dot" id="live-label">Yükleniyor</span>
   </div>
 </nav>
@@ -629,7 +770,7 @@ footer {
   <div class="hero fade-in">
     <p class="hero-eyebrow">Makale Radarı</p>
     <h1 class="hero-title">EM <em>Pulse</em></h1>
-    <p class="hero-sub">Son 7 günde yayımlanan acil tıp makaleleri, etki skoruna göre sıralanmış. Her sabah otomatik güncellenir.</p>
+    <p class="hero-sub">Son 7 günde yayınlanan acil tıp ve kritik bakım makalelerinden öne çıkanlar. Her sabah güncellenir.</p>
   </div>
 
   <div class="stats-bar fade-in">
@@ -638,16 +779,8 @@ footer {
       <div class="stat-lbl">Makale</div>
     </div>
     <div class="stat">
-      <div class="stat-num" id="stat-journals">—</div>
-      <div class="stat-lbl">Dergi</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num" id="stat-top">—</div>
-      <div class="stat-lbl">Top Skor</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">7</div>
-      <div class="stat-lbl">Gün</div>
+      <div class="stat-num" id="stat-tier1">—</div>
+      <div class="stat-lbl">Tier 1 Makale</div>
     </div>
     <div class="stat">
       <div class="stat-num" id="stat-updated">—</div>
@@ -700,13 +833,12 @@ function sw(score, max) { return Math.max(5, Math.round((score / Math.max(max,1)
 
 let state = {
   all:[], filtered:[], activeFilter:'all', activeKeyword:null,
-  page:0, pageSize:30, maxScore:100,
+  page:0, pageSize:30, maxScore:100, historyHTML:'',
 };
 
 function renderStats(data) {
   document.getElementById('stat-total').textContent    = data.stats.total;
-  document.getElementById('stat-journals').textContent = data.journalCount;
-  document.getElementById('stat-top').textContent      = data.stats.topScore;
+  document.getElementById('stat-tier1').textContent    = data.stats.byTier?.[1] ?? '—';
   const d = new Date(data.generatedAt);
   document.getElementById('stat-updated').textContent  =
     d.toLocaleTimeString('tr-TR', { hour:'2-digit', minute:'2-digit' });
@@ -847,6 +979,11 @@ function renderContent() {
         <div class="sidebar-title">Popüler Konular</div>
         <div class="keyword-list">${renderKeywords(all)}</div>
       </div>
+      <div class="sidebar-card sidebar-about">
+        <div class="sidebar-title">Nasıl Çalışır?</div>
+        <p class="about-text">Her sabah PubMed'e bağlanır, son 7 günde yayımlanan acil tıp ve kritik bakım ile ilişkili makaleleri tarar. Her makale; derginin etkisi, makale türü ve yayın tarihine göre puanlanır.</p>
+        <p class="about-text" style="margin-top:.6rem">İnsan eliyle seçilmiş hiçbir şey yok — tamamen otomatik.</p>
+      </div>
     </aside>`;
 
   document.getElementById('content').innerHTML = `
@@ -859,7 +996,8 @@ function renderContent() {
         ${renderPagination(filtered, page, pageSize)}
       </div>
       ${sidebar}
-    </div>`;
+    </div>
+    ${state.historyHTML}`;
 
   document.querySelectorAll('.filter-btn[data-filter]').forEach(btn =>
     btn.addEventListener('click', () => applyFilter(btn.dataset.filter)));
@@ -891,14 +1029,84 @@ function applyKeyword(kw) {
   renderContent();
 }
 
+// ── Zirvedekiler ────────────────────────────────────────────────────────
+
+function formatHistDate(s) {
+  const d = new Date(s + 'T00:00:00');
+  return d.toLocaleDateString('tr-TR', { day:'numeric', month:'short', year:'numeric' });
+}
+
+function renderHistory(hist) {
+  if (!hist || !hist.streaks || hist.streaks.length === 0) {
+    return `
+      <div class="hof-section open" id="hof">
+        <button class="hof-toggle" onclick="document.getElementById('hof').classList.toggle('open')">
+          <span class="section-label">📜 Zirvedekiler</span>
+          <span class="hof-arrow">▶</span>
+          <div class="section-rule"></div>
+        </button>
+        <div class="hof-body">
+          <div class="hof-empty">Henüz veri biriktirilmedi — birkaç güne kadar burada günün 1. sıra makaleleri görünecek.</div>
+        </div>
+      </div>`;
+  }
+
+  const entries = hist.streaks.map(s => {
+    const isStreak = s.days > 1;
+    const dateStr = isStreak
+      ? `${formatHistDate(s.startDate)} → ${formatHistDate(s.endDate)}`
+      : formatHistDate(s.startDate);
+
+    return `
+      <div class="hof-entry${isStreak ? ' streak' : ''}">
+        <div class="hof-date">
+          ${dateStr}
+          ${isStreak ? `<span class="hof-streak-badge">${s.days} gün üst üste</span>` : ''}
+        </div>
+        <a class="hof-card" href="${s.url}" target="_blank" rel="noopener">
+          <div class="hof-title">${s.title}</div>
+          <div class="hof-meta">
+            <span class="type-badge ${s.articleType}">${typeLabel(s.articleType)}</span>
+            <span class="meta-journal">${s.journal}</span>
+            <span class="score-mini">↑${s.score}</span>
+          </div>
+        </a>
+      </div>`;
+  }).join('');
+
+  return `
+    <div class="hof-section" id="hof">
+      <button class="hof-toggle" onclick="document.getElementById('hof').classList.toggle('open')">
+        <span class="section-label">📜 Zirvedekiler · ${hist.totalDays} gün</span>
+        <span class="hof-arrow">▶</span>
+        <div class="section-rule"></div>
+      </button>
+      <div class="hof-body">
+        <div class="hof-timeline">${entries}</div>
+      </div>
+    </div>`;
+}
+
+async function loadHistory() {
+  try {
+    const res = await fetch(`data/history.json?t=${Date.now()}`);
+    if (!res.ok) return null;
+    return await res.json();
+  } catch { return null; }
+}
+
 async function loadData() {
   try {
-    const res = await fetch(`data/pulse.json?t=${Date.now()}`);
+    const [res, histData] = await Promise.all([
+      fetch(`data/pulse.json?t=${Date.now()}`),
+      loadHistory(),
+    ]);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     state.all = data.articles || [];
     state.filtered = [...state.all];
     state.maxScore = data.stats?.topScore || 100;
+    state.historyHTML = renderHistory(histData);
     renderStats(data);
     renderContent();
   } catch(e) {
@@ -913,4 +1121,6 @@ async function loadData() {
 loadData();
 </script>
 </body>
+</html>
+
 </html>
