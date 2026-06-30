@@ -210,12 +210,29 @@ function dateStr(d) {
   return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}`;
 }
 
-/** Makale tipini belirle — önce PubMed PT, sonra başlık fallback */
+/** Makale tipini belirle — editöryal guard → PubMed PT → başlık fallback */
 function classifyType(ptList, title) {
   const pts = (ptList || []).map(p => p.toLowerCase());
   const t   = (title  || '').toLowerCase();
 
-  // En spesifik tipler önce — hem PubMed PT hem başlık birlikte kontrol
+  // ─── GUARD: Editöryal yazışma kalıpları (en yüksek öncelik) ───
+  // Başlıkta bu kalıplardan biri varsa, başlıktaki diğer tüm anahtar
+  // kelimeleri (meta-analysis, RCT, guideline vb.) görmezden gel.
+  // Örnek: "Authors' reply to Letter on '...meta-analysis'" → letter
+  const EDITORIAL_PATTERNS = [
+    'letter to the editor', 'reply to the letter', 'reply to the comment',
+    "authors' reply", "author's reply", 'author reply', 'authors reply',
+    'response to the letter', 'response to the comment',
+    'comment on:', 'comments on:', 'correspondence on',
+    'in response to', 'regarding the article',
+    'erratum', 'corrigendum', 'correction to', 'retraction of',
+    'retraction note', 'retraction:',
+  ];
+  if (EDITORIAL_PATTERNS.some(pat => t.includes(pat))) {
+    return 'letter';
+  }
+
+  // ─── PubMed PT + başlık birlikte kontrol ───
   if (pts.some(p => p.includes('meta-analysis')) ||
       t.includes('meta-analysis') || t.includes('meta analysis')) return 'meta-analysis';
 
