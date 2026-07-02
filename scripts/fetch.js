@@ -216,10 +216,8 @@ function classifyType(ptList, title) {
   const pts = (ptList || []).map(p => p.toLowerCase());
   const t   = (title  || '').toLowerCase();
 
-  // ─── GUARD: Editöryal yazışma kalıpları (en yüksek öncelik) ───
-  // Başlıkta bu kalıplardan biri varsa, başlıktaki diğer tüm anahtar
-  // kelimeleri (meta-analysis, RCT, guideline vb.) görmezden gel.
-  // Örnek: "Authors' reply to Letter on '...meta-analysis'" → letter
+  // ─── KATMAN 1: Editöryal yazışma kalıpları (en yüksek öncelik) ───
+  // Başlıkta bu kalıplardan biri varsa, diğer her şeyi görmezden gel.
   const EDITORIAL_PATTERNS = [
     'letter to the editor', 'reply to the letter', 'reply to the comment',
     "authors' reply", "author's reply", 'author reply', 'authors reply',
@@ -233,36 +231,36 @@ function classifyType(ptList, title) {
     return 'letter';
   }
 
-  // ─── PubMed PT + başlık birlikte kontrol ───
-  if (pts.some(p => p.includes('meta-analysis')) ||
-      t.includes('meta-analysis') || t.includes('meta analysis')) return 'meta-analysis';
+  // ─── KATMAN 2: PubMed structured Publication Type (birincil kaynak) ───
+  // Bu alanlar PubMed editörleri tarafından atanır, güvenilirdir.
+  if (pts.some(p => p.includes('meta-analysis')))                return 'meta-analysis';
+  if (pts.some(p => p.includes('systematic review')))            return 'systematic-review';
+  if (pts.some(p => p.includes('practice guideline')))           return 'guideline';
+  if (pts.some(p => p === 'guideline'))                          return 'guideline';
+  if (pts.some(p => p.includes('randomized controlled trial')))  return 'rct';
+  if (pts.some(p => p.includes('clinical trial')))               return 'clinical-trial';
+  if (pts.some(p => p.includes('case report')))                  return 'case-report';
+  if (pts.some(p => p.includes('editorial')))                    return 'editorial';
+  if (pts.some(p => p.includes('letter')))                       return 'letter';
+  if (pts.some(p => p.includes('comment')))                      return 'comment';
+  if (pts.some(p => p === 'review'))                             return 'review';
 
-  if (pts.some(p => p.includes('systematic review')) ||
-      t.includes('systematic review') || t.includes('systematic literature review') ||
-      t.includes('scoping review')) return 'systematic-review';
+  // ─── KATMAN 3: Başlık heuristiği (sadece PubMed PT spesifik değilse) ───
+  // Buraya sadece PT = ["Journal Article"] gibi genel etiketli makaleler düşer.
+  // Başlıktan tip çıkarımı yapılır ama dikkatli olmak gerek.
+  if (t.includes('meta-analysis') || t.includes('meta analysis'))              return 'meta-analysis';
+  if (t.includes('systematic review') || t.includes('systematic literature review')
+      || t.includes('scoping review'))                                          return 'systematic-review';
+  if (t.includes('randomized controlled') || t.includes('randomised controlled')
+      || t.includes(': a randomized') || t.includes(': a randomised'))          return 'rct';
+  if (t.includes('clinical trial'))                                             return 'clinical-trial';
+  if (t.includes('case report') || t.includes('a case of') || t.includes('case series')) return 'case-report';
+  if (t.includes('narrative review') || t.includes(': a review')
+      || t.includes('review of the literature') || t.includes('review of literature')) return 'review';
 
-  if (pts.some(p => p.includes('randomized controlled')) ||
-      t.includes('randomized controlled') || t.includes('randomised controlled') ||
-      t.includes(': a randomized') || t.includes(': a randomised')) return 'rct';
-
-  if (pts.some(p => p.includes('practice guideline') || p.includes('guideline')) ||
-      t.includes('guideline') || t.includes('consensus statement') ||
-      t.includes('position statement') || t.includes('expert panel')) return 'guideline';
-
-  if (pts.some(p => p.includes('clinical trial')) ||
-      t.includes('clinical trial')) return 'clinical-trial';
-
-  // Genel review — spesifik tipler elenince
-  if (pts.some(p => p.includes('review')) ||
-      t.includes('narrative review') || t.includes(': a review') ||
-      t.includes('review of the literature') || t.includes('review of literature')) return 'review';
-
-  if (pts.some(p => p.includes('case report')) ||
-      t.includes('case report') || t.includes('a case of')) return 'case-report';
-
-  if (pts.some(p => p.includes('editorial'))) return 'editorial';
-  if (pts.some(p => p.includes('letter')))    return 'letter';
-  if (pts.some(p => p.includes('comment')))   return 'comment';
+  // NOT: "guideline" ve "consensus statement" başlık heuristiğinden ÇIKARILDI.
+  // Başlıkta "guideline" geçmesi makaleyi kılavuz yapmaz.
+  // Sadece PubMed'in "Practice Guideline" etiketi verdiği makaleler kılavuz sayılır.
 
   return 'original';
 }
