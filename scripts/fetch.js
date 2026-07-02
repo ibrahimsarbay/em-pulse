@@ -475,7 +475,8 @@ async function recordHistory(topArticle) {
   // Mevcut geçmişi oku
   let history = [];
   try {
-    history = JSON.parse(await fs.readFile(HIST_FILE, 'utf-8'));
+    const parsed = JSON.parse(await fs.readFile(HIST_FILE, 'utf-8'));
+    history = Array.isArray(parsed) ? parsed : (parsed.raw || []);
   } catch { /* ilk çalışma veya dosya yok */ }
 
   // Bugün zaten kayıtlı mı?
