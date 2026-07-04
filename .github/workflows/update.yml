@@ -21,6 +21,11 @@ jobs:
       - name: Bağımlılıkları yükle
         run: npm install
 
+      - name: Mevcut history dosyasını sunucudan çek
+        run: |
+          mkdir -p public/data
+          curl -sf https://derinsoluk.com/pulse/data/history.json -o public/data/history.json || echo '[]' > public/data/history.json
+
       - name: PubMed verisi çek
         run: node scripts/fetch.js --force
 
@@ -38,3 +43,4 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
+
