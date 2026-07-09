@@ -2,12 +2,14 @@ name: EM Pulse — Güncelle & Deploy
 
 on:
   schedule:
-    - cron: '0 4 * * *'   # Her gün 04:00 UTC (sabah 07:00 TR)
-  workflow_dispatch:        # Elle tetikleme (Actions → Run workflow)
+    - cron: '0 4 * * *'
+  workflow_dispatch:
 
 jobs:
   fetch-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Kodu çek
@@ -21,40 +23,32 @@ jobs:
       - name: Bağımlılıkları yükle
         run: npm install
 
-      - name: History cache'i yükle
-        uses: actions/cache/restore@v4
-        with:
-          path: public/data/history.json
-          key: pulse-history-${{ github.run_id }}
-          restore-keys: |
-            pulse-history-
-
-      - name: History dosyasını kontrol et
+      - name: History kontrolü
         run: |
-          mkdir -p public/data
           if [ -f public/data/history.json ]; then
-            echo "✅ Cache'den yüklendi:"
+            echo "✅ Repo'da history.json mevcut:"
             python3 -c "
           import json
           d=json.load(open('public/data/history.json'))
           raw=d.get('raw',d) if isinstance(d,dict) else d
-          print(f'  {len(raw)} gün kaydı mevcut')
-          for r in raw[-3:]:
-              print(f'  {r[\"date\"]} — {r[\"title\"][:60]}')
-          " 2>/dev/null || echo "  (parse edilemedi)"
+          print(f'  {len(raw)} gün kaydı')
+          " 2>/dev/null || echo "  (okunamadı)"
           else
-            echo "⚠️ Cache boş, ilk çalışma"
+            echo "⚠️ history.json yok, oluşturuluyor"
+            mkdir -p public/data
             echo '[]' > public/data/history.json
           fi
 
       - name: PubMed verisi çek
         run: node scripts/fetch.js --force
 
-      - name: History cache'i kaydet
-        uses: actions/cache/save@v4
-        with:
-          path: public/data/history.json
-          key: pulse-history-${{ github.run_id }}
+      - name: History'yi repo'ya kaydet
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/history.json
+          git diff --cached --quiet || git commit -m "chore: history güncellendi ($(date +%Y-%m-%d))"
+          git push
 
       - name: Hosting'e FTP ile deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
