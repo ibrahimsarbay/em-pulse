@@ -1,0 +1,92 @@
+{
+  "updatedAt": "2026-07-09T13:05:54.605Z",
+  "totalDays": 6,
+  "raw": [
+    {
+      "date": "2026-07-04",
+      "pmid": "42381628",
+      "title": "ENTF Neuromodulation Yields Reduced Disability After Stroke: An Individual Participant-Level Data Meta-Analysis.",
+      "journal": "Stroke",
+      "score": 67,
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.125.054959",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42381628/"
+    },
+    {
+      "date": "2026-07-05",
+      "pmid": "42381628",
+      "title": "ENTF Neuromodulation Yields Reduced Disability After Stroke: An Individual Participant-Level Data Meta-Analysis.",
+      "journal": "Stroke",
+      "score": 67,
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.125.054959",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42381628/"
+    },
+    {
+      "date": "2026-07-06",
+      "pmid": "42381628",
+      "title": "ENTF Neuromodulation Yields Reduced Disability After Stroke: An Individual Participant-Level Data Meta-Analysis.",
+      "journal": "Stroke",
+      "score": 67,
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.125.054959",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42381628/"
+    },
+    {
+      "date": "2026-07-07",
+      "pmid": "42381628",
+      "title": "ENTF Neuromodulation Yields Reduced Disability After Stroke: An Individual Participant-Level Data Meta-Analysis.",
+      "journal": "Stroke",
+      "score": 67,
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.125.054959",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42381628/"
+    },
+    {
+      "date": "2026-07-08",
+      "pmid": "42381628",
+      "title": "ENTF Neuromodulation Yields Reduced Disability After Stroke: An Individual Participant-Level Data Meta-Analysis.",
+      "journal": "Stroke",
+      "score": 67,
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.125.054959",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42381628/"
+    },
+    {
+      "date": "2026-07-09",
+      "pmid": "42419585",
+      "title": "An Optimization Randomized Clinical Trial to Identify an Effective, Efficient Smoking Cessation Intervention in the Context of Lung Cancer Screening: Cessation and Screening to Save Lives (CASTL).",
+      "journal": "Chest",
+      "score": 54,
+      "articleType": "clinical-trial",
+      "doi": "10.1016/j.chest.2026.06.042",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42419585/"
+    }
+  ],
+  "streaks": [
+    {
+      "pmid": "42419585",
+      "title": "An Optimization Randomized Clinical Trial to Identify an Effective, Efficient Smoking Cessation Intervention in the Context of Lung Cancer Screening: Cessation and Screening to Save Lives (CASTL).",
+      "journal": "Chest",
+      "articleType": "clinical-trial",
+      "doi": "10.1016/j.chest.2026.06.042",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42419585/",
+      "score": 54,
+      "startDate": "2026-07-09",
+      "endDate": "2026-07-09",
+      "days": 1
+    },
+    {
+      "pmid": "42381628",
+      "title": "ENTF Neuromodulation Yields Reduced Disability After Stroke: An Individual Participant-Level Data Meta-Analysis.",
+      "journal": "Stroke",
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.125.054959",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42381628/",
+      "score": 67,
+      "startDate": "2026-07-04",
+      "endDate": "2026-07-08",
+      "days": 5
+    }
+  ]
+}
