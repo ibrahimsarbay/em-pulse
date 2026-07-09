@@ -25,19 +25,23 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: public/data/history.json
-          key: pulse-history
+          key: pulse-history-${{ github.run_id }}
+          restore-keys: |
+            pulse-history-
 
       - name: History dosyasını kontrol et
         run: |
           mkdir -p public/data
           if [ -f public/data/history.json ]; then
             echo "✅ Cache'den yüklendi:"
-            cat public/data/history.json | python3 -c "
-          import sys,json
-          d=json.load(sys.stdin)
+            python3 -c "
+          import json
+          d=json.load(open('public/data/history.json'))
           raw=d.get('raw',d) if isinstance(d,dict) else d
           print(f'  {len(raw)} gün kaydı mevcut')
-          " 2>/dev/null || echo "  (parse edilemedi, sıfırdan başlanacak)"
+          for r in raw[-3:]:
+              print(f'  {r[\"date\"]} — {r[\"title\"][:60]}')
+          " 2>/dev/null || echo "  (parse edilemedi)"
           else
             echo "⚠️ Cache boş, ilk çalışma"
             echo '[]' > public/data/history.json
