@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-09T19:06:47.161Z",
-  "totalDays": 6,
+  "updatedAt": "2026-07-10T07:42:35.533Z",
+  "totalDays": 7,
   "raw": [
     {
       "date": "2026-07-04",
@@ -61,9 +61,31 @@
       "articleType": "clinical-trial",
       "doi": "10.1016/j.chest.2026.06.042",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42419585/"
+    },
+    {
+      "date": "2026-07-10",
+      "pmid": "42424133",
+      "title": "Screening and Interventions for Elder Mistreatment: Geriatric Emergency Department Guidelines 2.0 Systematic Review.",
+      "journal": "Academic emergency medicine : official journal of the Society for Academic Emergency Medicine",
+      "score": 66,
+      "articleType": "systematic-review",
+      "doi": "10.1111/acem.70373",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42424133/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42424133",
+      "title": "Screening and Interventions for Elder Mistreatment: Geriatric Emergency Department Guidelines 2.0 Systematic Review.",
+      "journal": "Academic emergency medicine : official journal of the Society for Academic Emergency Medicine",
+      "articleType": "systematic-review",
+      "doi": "10.1111/acem.70373",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42424133/",
+      "score": 66,
+      "startDate": "2026-07-10",
+      "endDate": "2026-07-10",
+      "days": 1
+    },
     {
       "pmid": "42419585",
       "title": "An Optimization Randomized Clinical Trial to Identify an Effective, Efficient Smoking Cessation Intervention in the Context of Lung Cancer Screening: Cessation and Screening to Save Lives (CASTL).",
