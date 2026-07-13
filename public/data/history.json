@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-12T06:40:14.285Z",
-  "totalDays": 9,
+  "updatedAt": "2026-07-13T07:29:01.582Z",
+  "totalDays": 10,
   "raw": [
     {
       "date": "2026-07-04",
@@ -91,6 +91,16 @@
       "articleType": "systematic-review",
       "doi": "10.1111/acem.70373",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42424133/"
+    },
+    {
+      "date": "2026-07-13",
+      "pmid": "42424133",
+      "title": "Screening and Interventions for Elder Mistreatment: Geriatric Emergency Department Guidelines 2.0 Systematic Review.",
+      "journal": "Academic emergency medicine : official journal of the Society for Academic Emergency Medicine",
+      "score": 63,
+      "articleType": "systematic-review",
+      "doi": "10.1111/acem.70373",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42424133/"
     }
   ],
   "streaks": [
@@ -103,8 +113,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42424133/",
       "score": 66,
       "startDate": "2026-07-10",
-      "endDate": "2026-07-12",
-      "days": 3
+      "endDate": "2026-07-13",
+      "days": 4
     },
     {
       "pmid": "42419585",
