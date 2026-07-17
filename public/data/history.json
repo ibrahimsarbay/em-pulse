@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-16T06:24:56.300Z",
-  "totalDays": 13,
+  "updatedAt": "2026-07-17T06:22:34.609Z",
+  "totalDays": 14,
   "raw": [
     {
       "date": "2026-07-04",
@@ -131,9 +131,31 @@
       "articleType": "systematic-review",
       "doi": "10.1111/acem.70373",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42424133/"
+    },
+    {
+      "date": "2026-07-17",
+      "pmid": "42460477",
+      "title": "Ischemic Postconditioning in Patients With Acute Stroke With Successful Recanalization After Endovascular Therapy: A Pilot Randomized Controlled Trial.",
+      "journal": "Stroke",
+      "score": 64,
+      "articleType": "rct",
+      "doi": "10.1161/STROKEAHA.125.056167",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42460477/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42460477",
+      "title": "Ischemic Postconditioning in Patients With Acute Stroke With Successful Recanalization After Endovascular Therapy: A Pilot Randomized Controlled Trial.",
+      "journal": "Stroke",
+      "articleType": "rct",
+      "doi": "10.1161/STROKEAHA.125.056167",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42460477/",
+      "score": 64,
+      "startDate": "2026-07-17",
+      "endDate": "2026-07-17",
+      "days": 1
+    },
     {
       "pmid": "42424133",
       "title": "Screening and Interventions for Elder Mistreatment: Geriatric Emergency Department Guidelines 2.0 Systematic Review.",
