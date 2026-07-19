@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-18T06:10:14.395Z",
-  "totalDays": 15,
+  "updatedAt": "2026-07-19T06:35:40.928Z",
+  "totalDays": 16,
   "raw": [
     {
       "date": "2026-07-04",
@@ -151,6 +151,16 @@
       "articleType": "guideline",
       "doi": "10.1016/j.athoracsur.2026.06.065",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42468870/"
+    },
+    {
+      "date": "2026-07-19",
+      "pmid": "42468870",
+      "title": "The Society of Thoracic Surgeons Expert Consensus Document on Tricuspid Valve Endocarditis in People Who Inject Drugs.",
+      "journal": "The Annals of thoracic surgery",
+      "score": 68,
+      "articleType": "guideline",
+      "doi": "10.1016/j.athoracsur.2026.06.065",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42468870/"
     }
   ],
   "streaks": [
@@ -163,8 +173,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42468870/",
       "score": 69,
       "startDate": "2026-07-18",
-      "endDate": "2026-07-18",
-      "days": 1
+      "endDate": "2026-07-19",
+      "days": 2
     },
     {
       "pmid": "42460477",
