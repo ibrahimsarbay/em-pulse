@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-21T06:34:59.490Z",
-  "totalDays": 18,
+  "updatedAt": "2026-07-22T06:35:39.559Z",
+  "totalDays": 19,
   "raw": [
     {
       "date": "2026-07-04",
@@ -181,9 +181,31 @@
       "articleType": "guideline",
       "doi": "10.1016/j.athoracsur.2026.06.065",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42468870/"
+    },
+    {
+      "date": "2026-07-22",
+      "pmid": "42479001",
+      "title": "Pulmonary Embolism Reporting and Data System (PE-RADS&#x2122;) v2026 for the Diagnosis of Acute Pulmonary Embolism on CT and MR Angiography.",
+      "journal": "Chest",
+      "score": 74,
+      "articleType": "guideline",
+      "doi": "10.1016/j.chest.2026.06.006",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42479001/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42479001",
+      "title": "Pulmonary Embolism Reporting and Data System (PE-RADS&#x2122;) v2026 for the Diagnosis of Acute Pulmonary Embolism on CT and MR Angiography.",
+      "journal": "Chest",
+      "articleType": "guideline",
+      "doi": "10.1016/j.chest.2026.06.006",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42479001/",
+      "score": 74,
+      "startDate": "2026-07-22",
+      "endDate": "2026-07-22",
+      "days": 1
+    },
     {
       "pmid": "42468870",
       "title": "The Society of Thoracic Surgeons Expert Consensus Document on Tricuspid Valve Endocarditis in People Who Inject Drugs.",
