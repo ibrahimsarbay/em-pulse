@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-22T06:35:39.559Z",
-  "totalDays": 19,
+  "updatedAt": "2026-07-23T06:35:06.129Z",
+  "totalDays": 20,
   "raw": [
     {
       "date": "2026-07-04",
@@ -191,9 +191,31 @@
       "articleType": "guideline",
       "doi": "10.1016/j.chest.2026.06.006",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42479001/"
+    },
+    {
+      "date": "2026-07-23",
+      "pmid": "42480820",
+      "title": "Obstructive Sleep Apnea (OSA) in Pregnancy - An American College of Chest Physicians Clinical Practice Guideline.",
+      "journal": "Chest",
+      "score": 73,
+      "articleType": "guideline",
+      "doi": "10.1016/j.chest.2026.06.058",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42480820/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42480820",
+      "title": "Obstructive Sleep Apnea (OSA) in Pregnancy - An American College of Chest Physicians Clinical Practice Guideline.",
+      "journal": "Chest",
+      "articleType": "guideline",
+      "doi": "10.1016/j.chest.2026.06.058",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42480820/",
+      "score": 73,
+      "startDate": "2026-07-23",
+      "endDate": "2026-07-23",
+      "days": 1
+    },
     {
       "pmid": "42479001",
       "title": "Pulmonary Embolism Reporting and Data System (PE-RADS&#x2122;) v2026 for the Diagnosis of Acute Pulmonary Embolism on CT and MR Angiography.",
