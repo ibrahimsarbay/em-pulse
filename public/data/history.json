@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-23T06:35:06.129Z",
-  "totalDays": 20,
+  "updatedAt": "2026-07-24T06:32:29.324Z",
+  "totalDays": 21,
   "raw": [
     {
       "date": "2026-07-04",
@@ -201,6 +201,16 @@
       "articleType": "guideline",
       "doi": "10.1016/j.chest.2026.06.058",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42480820/"
+    },
+    {
+      "date": "2026-07-24",
+      "pmid": "42480820",
+      "title": "Obstructive Sleep Apnea (OSA) in Pregnancy - An American College of Chest Physicians Clinical Practice Guideline.",
+      "journal": "Chest",
+      "score": 72,
+      "articleType": "guideline",
+      "doi": "10.1016/j.chest.2026.06.058",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42480820/"
     }
   ],
   "streaks": [
@@ -213,8 +223,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42480820/",
       "score": 73,
       "startDate": "2026-07-23",
-      "endDate": "2026-07-23",
-      "days": 1
+      "endDate": "2026-07-24",
+      "days": 2
     },
     {
       "pmid": "42479001",
