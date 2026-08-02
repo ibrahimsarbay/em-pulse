@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-01T06:35:36.908Z",
-  "totalDays": 29,
+  "updatedAt": "2026-08-02T06:38:51.365Z",
+  "totalDays": 30,
   "raw": [
     {
       "date": "2026-07-04",
@@ -291,6 +291,16 @@
       "articleType": "guideline",
       "doi": "10.1016/j.athoracsur.2026.07.010",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42508675/"
+    },
+    {
+      "date": "2026-08-02",
+      "pmid": "42508675",
+      "title": "The Society of Thoracic Surgeons / World Society for Pediatric and Congenital Heart Surgery / European Congenital Heart Surgeons Association 2026 Expert Consensus Document on Timing, Indications, and Options for Pulmonary Valve Replacement in Children with Repaired Tetralogy of Fallot.",
+      "journal": "The Annals of thoracic surgery",
+      "score": 64,
+      "articleType": "guideline",
+      "doi": "10.1016/j.athoracsur.2026.07.010",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42508675/"
     }
   ],
   "streaks": [
@@ -303,8 +313,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42508675/",
       "score": 69,
       "startDate": "2026-07-28",
-      "endDate": "2026-08-01",
-      "days": 5
+      "endDate": "2026-08-02",
+      "days": 6
     },
     {
       "pmid": "42480820",
