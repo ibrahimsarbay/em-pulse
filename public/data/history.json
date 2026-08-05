@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-04T06:33:09.145Z",
-  "totalDays": 32,
+  "updatedAt": "2026-08-05T06:34:08.724Z",
+  "totalDays": 33,
   "raw": [
     {
       "date": "2026-07-04",
@@ -321,9 +321,31 @@
       "articleType": "guideline",
       "doi": "10.1016/j.athoracsur.2026.07.010",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42508675/"
+    },
+    {
+      "date": "2026-08-05",
+      "pmid": "42521618",
+      "title": "Effect of maintenance macrolide de-escalation during the Australian summer on exacerbations of obstructive airway diseases: a randomised, double-blind, placebo-controlled trial.",
+      "journal": "Thorax",
+      "score": 57,
+      "articleType": "rct",
+      "doi": "10.1136/thorax-2025-224164",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42521618/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42521618",
+      "title": "Effect of maintenance macrolide de-escalation during the Australian summer on exacerbations of obstructive airway diseases: a randomised, double-blind, placebo-controlled trial.",
+      "journal": "Thorax",
+      "articleType": "rct",
+      "doi": "10.1136/thorax-2025-224164",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42521618/",
+      "score": 57,
+      "startDate": "2026-08-05",
+      "endDate": "2026-08-05",
+      "days": 1
+    },
     {
       "pmid": "42508675",
       "title": "The Society of Thoracic Surgeons / World Society for Pediatric and Congenital Heart Surgery / European Congenital Heart Surgeons Association 2026 Expert Consensus Document on Timing, Indications, and Options for Pulmonary Valve Replacement in Children with Repaired Tetralogy of Fallot.",
