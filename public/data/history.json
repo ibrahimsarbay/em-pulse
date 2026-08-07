@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-06T06:37:00.978Z",
-  "totalDays": 34,
+  "updatedAt": "2026-08-07T05:45:15.706Z",
+  "totalDays": 35,
   "raw": [
     {
       "date": "2026-07-04",
@@ -341,9 +341,31 @@
       "articleType": "original",
       "doi": "10.1111/acem.70390",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42552619/"
+    },
+    {
+      "date": "2026-08-07",
+      "pmid": "42556560",
+      "title": "Systematic review and meta-analysis of FDG PET-CT for nodal staging of part-solid lung adenocarcinomas.",
+      "journal": "Chest",
+      "score": 63,
+      "articleType": "meta-analysis",
+      "doi": "10.1016/j.chest.2026.06.070",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42556560/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42556560",
+      "title": "Systematic review and meta-analysis of FDG PET-CT for nodal staging of part-solid lung adenocarcinomas.",
+      "journal": "Chest",
+      "articleType": "meta-analysis",
+      "doi": "10.1016/j.chest.2026.06.070",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42556560/",
+      "score": 63,
+      "startDate": "2026-08-07",
+      "endDate": "2026-08-07",
+      "days": 1
+    },
     {
       "pmid": "42552619",
       "title": "Malnutrition and Geriatric Vulnerability Are Independently Associated With Short-Term Mortality in Older Emergency Department Patients in Taiwan.",
