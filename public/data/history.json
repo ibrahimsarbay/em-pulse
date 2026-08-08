@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-07T05:45:15.706Z",
-  "totalDays": 35,
+  "updatedAt": "2026-08-08T05:04:00.867Z",
+  "totalDays": 36,
   "raw": [
     {
       "date": "2026-07-04",
@@ -351,6 +351,16 @@
       "articleType": "meta-analysis",
       "doi": "10.1016/j.chest.2026.06.070",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42556560/"
+    },
+    {
+      "date": "2026-08-08",
+      "pmid": "42556560",
+      "title": "Systematic review and meta-analysis of FDG PET-CT for nodal staging of part-solid lung adenocarcinomas.",
+      "journal": "Chest",
+      "score": 62,
+      "articleType": "meta-analysis",
+      "doi": "10.1016/j.chest.2026.06.070",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42556560/"
     }
   ],
   "streaks": [
@@ -363,8 +373,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42556560/",
       "score": 63,
       "startDate": "2026-08-07",
-      "endDate": "2026-08-07",
-      "days": 1
+      "endDate": "2026-08-08",
+      "days": 2
     },
     {
       "pmid": "42552619",
