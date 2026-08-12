@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-11T05:14:30.368Z",
-  "totalDays": 39,
+  "updatedAt": "2026-08-12T05:41:45.447Z",
+  "totalDays": 40,
   "raw": [
     {
       "date": "2026-07-04",
@@ -391,9 +391,31 @@
       "articleType": "meta-analysis",
       "doi": "10.1016/j.chest.2026.06.070",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42556560/"
+    },
+    {
+      "date": "2026-08-12",
+      "pmid": "42576250",
+      "title": "Predictive value of diaphragmatic ultrasound for weaning outcomes in mechanically ventilated patients with acute exacerbation of chronic obstructive pulmonary disease: a systematic review and meta-analysis.",
+      "journal": "Critical care (London, England)",
+      "score": 69,
+      "articleType": "meta-analysis",
+      "doi": "10.1186/s13054-026-06240-1",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42576250/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42576250",
+      "title": "Predictive value of diaphragmatic ultrasound for weaning outcomes in mechanically ventilated patients with acute exacerbation of chronic obstructive pulmonary disease: a systematic review and meta-analysis.",
+      "journal": "Critical care (London, England)",
+      "articleType": "meta-analysis",
+      "doi": "10.1186/s13054-026-06240-1",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42576250/",
+      "score": 69,
+      "startDate": "2026-08-12",
+      "endDate": "2026-08-12",
+      "days": 1
+    },
     {
       "pmid": "42556560",
       "title": "Systematic review and meta-analysis of FDG PET-CT for nodal staging of part-solid lung adenocarcinomas.",
