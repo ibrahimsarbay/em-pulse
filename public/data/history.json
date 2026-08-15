@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-14T06:47:59.782Z",
-  "totalDays": 42,
+  "updatedAt": "2026-08-15T04:37:22.575Z",
+  "totalDays": 43,
   "raw": [
     {
       "date": "2026-07-04",
@@ -421,6 +421,16 @@
       "articleType": "meta-analysis",
       "doi": "10.1186/s13054-026-06240-1",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42576250/"
+    },
+    {
+      "date": "2026-08-15",
+      "pmid": "42576250",
+      "title": "Predictive value of diaphragmatic ultrasound for weaning outcomes in mechanically ventilated patients with acute exacerbation of chronic obstructive pulmonary disease: a systematic review and meta-analysis.",
+      "journal": "Critical care (London, England)",
+      "score": 66,
+      "articleType": "meta-analysis",
+      "doi": "10.1186/s13054-026-06240-1",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42576250/"
     }
   ],
   "streaks": [
@@ -433,8 +443,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42576250/",
       "score": 69,
       "startDate": "2026-08-12",
-      "endDate": "2026-08-14",
-      "days": 3
+      "endDate": "2026-08-15",
+      "days": 4
     },
     {
       "pmid": "42556560",
