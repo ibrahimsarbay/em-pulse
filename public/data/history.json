@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-18T04:41:30.565Z",
-  "totalDays": 46,
+  "updatedAt": "2026-08-19T04:43:57.762Z",
+  "totalDays": 47,
   "raw": [
     {
       "date": "2026-07-04",
@@ -461,9 +461,31 @@
       "articleType": "meta-analysis",
       "doi": "10.1186/s13054-026-06240-1",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42576250/"
+    },
+    {
+      "date": "2026-08-19",
+      "pmid": "42612901",
+      "title": "Induction Agents for Tracheal Intubation of Critically Ill Patients: A Systematic Review and Network Meta-Analysis of Randomized Controlled Trials.",
+      "journal": "Chest",
+      "score": 69,
+      "articleType": "meta-analysis",
+      "doi": "10.1016/j.chest.2026.07.5239",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42612901/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42612901",
+      "title": "Induction Agents for Tracheal Intubation of Critically Ill Patients: A Systematic Review and Network Meta-Analysis of Randomized Controlled Trials.",
+      "journal": "Chest",
+      "articleType": "meta-analysis",
+      "doi": "10.1016/j.chest.2026.07.5239",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42612901/",
+      "score": 69,
+      "startDate": "2026-08-19",
+      "endDate": "2026-08-19",
+      "days": 1
+    },
     {
       "pmid": "42576250",
       "title": "Predictive value of diaphragmatic ultrasound for weaning outcomes in mechanically ventilated patients with acute exacerbation of chronic obstructive pulmonary disease: a systematic review and meta-analysis.",
