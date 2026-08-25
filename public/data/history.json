@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-24T04:52:24.884Z",
-  "totalDays": 52,
+  "updatedAt": "2026-08-25T04:45:06.894Z",
+  "totalDays": 53,
   "raw": [
     {
       "date": "2026-07-04",
@@ -521,6 +521,16 @@
       "articleType": "meta-analysis",
       "doi": "10.1016/j.chest.2026.07.5239",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42612901/"
+    },
+    {
+      "date": "2026-08-25",
+      "pmid": "42612901",
+      "title": "Induction Agents for Tracheal Intubation of Critically Ill Patients: A Systematic Review and Network Meta-Analysis of Randomized Controlled Trials.",
+      "journal": "Chest",
+      "score": 63,
+      "articleType": "meta-analysis",
+      "doi": "10.1016/j.chest.2026.07.5239",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42612901/"
     }
   ],
   "streaks": [
@@ -533,8 +543,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42612901/",
       "score": 69,
       "startDate": "2026-08-19",
-      "endDate": "2026-08-24",
-      "days": 6
+      "endDate": "2026-08-25",
+      "days": 7
     },
     {
       "pmid": "42576250",
