@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-25T04:45:06.894Z",
-  "totalDays": 53,
+  "updatedAt": "2026-08-26T04:46:39.842Z",
+  "totalDays": 54,
   "raw": [
     {
       "date": "2026-07-04",
@@ -531,9 +531,31 @@
       "articleType": "meta-analysis",
       "doi": "10.1016/j.chest.2026.07.5239",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42612901/"
+    },
+    {
+      "date": "2026-08-26",
+      "pmid": "42638312",
+      "title": "Near-infrared Autofluorescence Probe Versus Visual Identification for Parathyroid Detection and Functional Preservation During Total Thyroidectomy: A Randomized Controlled Trial.",
+      "journal": "Annals of surgery",
+      "score": 59,
+      "articleType": "rct",
+      "doi": "10.1097/SLA.0000000000007180",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42638312/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42638312",
+      "title": "Near-infrared Autofluorescence Probe Versus Visual Identification for Parathyroid Detection and Functional Preservation During Total Thyroidectomy: A Randomized Controlled Trial.",
+      "journal": "Annals of surgery",
+      "articleType": "rct",
+      "doi": "10.1097/SLA.0000000000007180",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42638312/",
+      "score": 59,
+      "startDate": "2026-08-26",
+      "endDate": "2026-08-26",
+      "days": 1
+    },
     {
       "pmid": "42612901",
       "title": "Induction Agents for Tracheal Intubation of Critically Ill Patients: A Systematic Review and Network Meta-Analysis of Randomized Controlled Trials.",
