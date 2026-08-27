@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-26T04:46:39.842Z",
-  "totalDays": 54,
+  "updatedAt": "2026-08-27T15:05:49.919Z",
+  "totalDays": 55,
   "raw": [
     {
       "date": "2026-07-04",
@@ -541,9 +541,31 @@
       "articleType": "rct",
       "doi": "10.1097/SLA.0000000000007180",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42638312/"
+    },
+    {
+      "date": "2026-08-27",
+      "pmid": "42645557",
+      "title": "Early mobilization for mechanical ventilation for sepsis or acute respiratory failure (EVER): a multicenter randomized controlled trial with 12-month outcomes.",
+      "journal": "Intensive care medicine",
+      "score": 64,
+      "articleType": "rct",
+      "doi": "10.1007/s00134-026-08598-w",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42645557/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42645557",
+      "title": "Early mobilization for mechanical ventilation for sepsis or acute respiratory failure (EVER): a multicenter randomized controlled trial with 12-month outcomes.",
+      "journal": "Intensive care medicine",
+      "articleType": "rct",
+      "doi": "10.1007/s00134-026-08598-w",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42645557/",
+      "score": 64,
+      "startDate": "2026-08-27",
+      "endDate": "2026-08-27",
+      "days": 1
+    },
     {
       "pmid": "42638312",
       "title": "Near-infrared Autofluorescence Probe Versus Visual Identification for Parathyroid Detection and Functional Preservation During Total Thyroidectomy: A Randomized Controlled Trial.",
