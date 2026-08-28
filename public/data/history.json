@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-27T15:05:49.919Z",
-  "totalDays": 55,
+  "updatedAt": "2026-08-28T16:29:35.597Z",
+  "totalDays": 56,
   "raw": [
     {
       "date": "2026-07-04",
@@ -551,9 +551,31 @@
       "articleType": "rct",
       "doi": "10.1007/s00134-026-08598-w",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42645557/"
+    },
+    {
+      "date": "2026-08-28",
+      "pmid": "42663055",
+      "title": "Prevalence and Clinical Relevance of Antiphospholipid Antibodies in Ischemic Stroke: A Systematic Review and Meta-Analysis.",
+      "journal": "Stroke",
+      "score": 70,
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.126.055247",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42663055/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42663055",
+      "title": "Prevalence and Clinical Relevance of Antiphospholipid Antibodies in Ischemic Stroke: A Systematic Review and Meta-Analysis.",
+      "journal": "Stroke",
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.126.055247",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42663055/",
+      "score": 70,
+      "startDate": "2026-08-28",
+      "endDate": "2026-08-28",
+      "days": 1
+    },
     {
       "pmid": "42645557",
       "title": "Early mobilization for mechanical ventilation for sepsis or acute respiratory failure (EVER): a multicenter randomized controlled trial with 12-month outcomes.",
