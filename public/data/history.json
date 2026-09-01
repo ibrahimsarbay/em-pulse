@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-31T10:43:45.853Z",
-  "totalDays": 59,
+  "updatedAt": "2026-09-01T09:18:58.478Z",
+  "totalDays": 60,
   "raw": [
     {
       "date": "2026-07-04",
@@ -591,6 +591,16 @@
       "articleType": "meta-analysis",
       "doi": "10.1161/STROKEAHA.126.055247",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42663055/"
+    },
+    {
+      "date": "2026-09-01",
+      "pmid": "42663055",
+      "title": "Prevalence and Clinical Relevance of Antiphospholipid Antibodies in Ischemic Stroke: A Systematic Review and Meta-Analysis.",
+      "journal": "Stroke",
+      "score": 66,
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.126.055247",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42663055/"
     }
   ],
   "streaks": [
@@ -603,8 +613,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42663055/",
       "score": 70,
       "startDate": "2026-08-28",
-      "endDate": "2026-08-31",
-      "days": 4
+      "endDate": "2026-09-01",
+      "days": 5
     },
     {
       "pmid": "42645557",
