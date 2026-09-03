@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-02T08:40:55.943Z",
-  "totalDays": 61,
+  "updatedAt": "2026-09-03T08:49:32.438Z",
+  "totalDays": 62,
   "raw": [
     {
       "date": "2026-07-04",
@@ -611,9 +611,31 @@
       "articleType": "meta-analysis",
       "doi": "10.1161/STROKEAHA.126.055247",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42663055/"
+    },
+    {
+      "date": "2026-09-03",
+      "pmid": "42685897",
+      "title": "Tobacco Treatment in the Inpatient Setting: An American College of Chest Physicians Clinical Practice Guideline.",
+      "journal": "Chest",
+      "score": 74,
+      "articleType": "guideline",
+      "doi": "10.1016/j.chest.2026.08.038",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42685897/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42685897",
+      "title": "Tobacco Treatment in the Inpatient Setting: An American College of Chest Physicians Clinical Practice Guideline.",
+      "journal": "Chest",
+      "articleType": "guideline",
+      "doi": "10.1016/j.chest.2026.08.038",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42685897/",
+      "score": 74,
+      "startDate": "2026-09-03",
+      "endDate": "2026-09-03",
+      "days": 1
+    },
     {
       "pmid": "42663055",
       "title": "Prevalence and Clinical Relevance of Antiphospholipid Antibodies in Ischemic Stroke: A Systematic Review and Meta-Analysis.",
