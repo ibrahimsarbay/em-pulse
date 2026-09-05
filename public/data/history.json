@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-04T08:45:18.627Z",
-  "totalDays": 63,
+  "updatedAt": "2026-09-05T08:15:28.542Z",
+  "totalDays": 64,
   "raw": [
     {
       "date": "2026-07-04",
@@ -631,6 +631,16 @@
       "articleType": "guideline",
       "doi": "10.1016/j.chest.2026.08.038",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42685897/"
+    },
+    {
+      "date": "2026-09-05",
+      "pmid": "42685897",
+      "title": "Tobacco Treatment in the Inpatient Setting: An American College of Chest Physicians Clinical Practice Guideline.",
+      "journal": "Chest",
+      "score": 72,
+      "articleType": "guideline",
+      "doi": "10.1016/j.chest.2026.08.038",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42685897/"
     }
   ],
   "streaks": [
@@ -643,8 +653,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42685897/",
       "score": 74,
       "startDate": "2026-09-03",
-      "endDate": "2026-09-04",
-      "days": 2
+      "endDate": "2026-09-05",
+      "days": 3
     },
     {
       "pmid": "42663055",
