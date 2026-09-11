@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-10T08:51:36.813Z",
-  "totalDays": 69,
+  "updatedAt": "2026-09-11T08:49:00.621Z",
+  "totalDays": 70,
   "raw": [
     {
       "date": "2026-07-04",
@@ -691,9 +691,31 @@
       "articleType": "guideline",
       "doi": "10.1016/j.chest.2026.08.038",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42685897/"
+    },
+    {
+      "date": "2026-09-11",
+      "pmid": "42715916",
+      "title": "The management of arterial injuries associated with musculoskeletal trauma.",
+      "journal": "Injury",
+      "score": 61,
+      "articleType": "guideline",
+      "doi": "10.1016/j.injury.2026.113648",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42715916/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42715916",
+      "title": "The management of arterial injuries associated with musculoskeletal trauma.",
+      "journal": "Injury",
+      "articleType": "guideline",
+      "doi": "10.1016/j.injury.2026.113648",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42715916/",
+      "score": 61,
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-11",
+      "days": 1
+    },
     {
       "pmid": "42685897",
       "title": "Tobacco Treatment in the Inpatient Setting: An American College of Chest Physicians Clinical Practice Guideline.",
