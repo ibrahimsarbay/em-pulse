@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-14T09:44:26.480Z",
-  "totalDays": 73,
+  "updatedAt": "2026-09-15T09:19:18.519Z",
+  "totalDays": 74,
   "raw": [
     {
       "date": "2026-07-04",
@@ -731,6 +731,16 @@
       "articleType": "guideline",
       "doi": "10.1016/j.injury.2026.113648",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42715916/"
+    },
+    {
+      "date": "2026-09-15",
+      "pmid": "42715916",
+      "title": "The management of arterial injuries associated with musculoskeletal trauma.",
+      "journal": "Injury",
+      "score": 57,
+      "articleType": "guideline",
+      "doi": "10.1016/j.injury.2026.113648",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42715916/"
     }
   ],
   "streaks": [
@@ -743,8 +753,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42715916/",
       "score": 61,
       "startDate": "2026-09-11",
-      "endDate": "2026-09-14",
-      "days": 4
+      "endDate": "2026-09-15",
+      "days": 5
     },
     {
       "pmid": "42685897",
