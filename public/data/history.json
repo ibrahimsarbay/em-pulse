@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-15T09:19:18.519Z",
-  "totalDays": 74,
+  "updatedAt": "2026-09-16T09:12:25.945Z",
+  "totalDays": 75,
   "raw": [
     {
       "date": "2026-07-04",
@@ -741,9 +741,31 @@
       "articleType": "guideline",
       "doi": "10.1016/j.injury.2026.113648",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42715916/"
+    },
+    {
+      "date": "2026-09-16",
+      "pmid": "42744113",
+      "title": "Social Media and Crisis Care Principles During Pandemics and Disasters: A Consensus Report From a Subgroup of the Task Force for Mass Critical Care.",
+      "journal": "Chest",
+      "score": 74,
+      "articleType": "guideline",
+      "doi": "10.1016/j.chest.2026.08.049",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42744113/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42744113",
+      "title": "Social Media and Crisis Care Principles During Pandemics and Disasters: A Consensus Report From a Subgroup of the Task Force for Mass Critical Care.",
+      "journal": "Chest",
+      "articleType": "guideline",
+      "doi": "10.1016/j.chest.2026.08.049",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42744113/",
+      "score": 74,
+      "startDate": "2026-09-16",
+      "endDate": "2026-09-16",
+      "days": 1
+    },
     {
       "pmid": "42715916",
       "title": "The management of arterial injuries associated with musculoskeletal trauma.",
