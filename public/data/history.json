@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-19T08:42:52.410Z",
-  "totalDays": 78,
+  "updatedAt": "2026-09-20T09:11:55.510Z",
+  "totalDays": 79,
   "raw": [
     {
       "date": "2026-07-04",
@@ -781,6 +781,16 @@
       "articleType": "guideline",
       "doi": "10.1016/j.chest.2026.08.049",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42744113/"
+    },
+    {
+      "date": "2026-09-20",
+      "pmid": "42744113",
+      "title": "Social Media and Crisis Care Principles During Pandemics and Disasters: A Consensus Report From a Subgroup of the Task Force for Mass Critical Care.",
+      "journal": "Chest",
+      "score": 70,
+      "articleType": "guideline",
+      "doi": "10.1016/j.chest.2026.08.049",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42744113/"
     }
   ],
   "streaks": [
@@ -793,8 +803,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42744113/",
       "score": 74,
       "startDate": "2026-09-16",
-      "endDate": "2026-09-19",
-      "days": 4
+      "endDate": "2026-09-20",
+      "days": 5
     },
     {
       "pmid": "42715916",
