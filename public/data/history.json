@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-23T09:13:06.475Z",
-  "totalDays": 82,
+  "updatedAt": "2026-09-24T09:11:21.308Z",
+  "totalDays": 83,
   "raw": [
     {
       "date": "2026-07-04",
@@ -821,6 +821,16 @@
       "articleType": "guideline",
       "doi": "10.1016/j.athoracsur.2026.08.015",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42753881/"
+    },
+    {
+      "date": "2026-09-24",
+      "pmid": "42753881",
+      "title": "The Society of Thoracic Surgeons (2026) Expert Consensus Document on Management of Esophageal Perforation.",
+      "journal": "The Annals of thoracic surgery",
+      "score": 63,
+      "articleType": "guideline",
+      "doi": "10.1016/j.athoracsur.2026.08.015",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42753881/"
     }
   ],
   "streaks": [
@@ -833,8 +843,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42753881/",
       "score": 64,
       "startDate": "2026-09-23",
-      "endDate": "2026-09-23",
-      "days": 1
+      "endDate": "2026-09-24",
+      "days": 2
     },
     {
       "pmid": "42744113",
