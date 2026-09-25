@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-24T09:11:21.308Z",
-  "totalDays": 83,
+  "updatedAt": "2026-09-25T09:30:48.540Z",
+  "totalDays": 84,
   "raw": [
     {
       "date": "2026-07-04",
@@ -831,9 +831,31 @@
       "articleType": "guideline",
       "doi": "10.1016/j.athoracsur.2026.08.015",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42753881/"
+    },
+    {
+      "date": "2026-09-25",
+      "pmid": "42762982",
+      "title": "Multicomponent Pulmonary Rehabilitation for Prolonged Mechanical Ventilation in Patients Aged 80 Years or Older: A Randomized Controlled Trial.",
+      "journal": "Chest",
+      "score": 59,
+      "articleType": "rct",
+      "doi": "10.1016/j.chest.2026.08.050",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42762982/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42762982",
+      "title": "Multicomponent Pulmonary Rehabilitation for Prolonged Mechanical Ventilation in Patients Aged 80 Years or Older: A Randomized Controlled Trial.",
+      "journal": "Chest",
+      "articleType": "rct",
+      "doi": "10.1016/j.chest.2026.08.050",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42762982/",
+      "score": 59,
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "days": 1
+    },
     {
       "pmid": "42753881",
       "title": "The Society of Thoracic Surgeons (2026) Expert Consensus Document on Management of Esophageal Perforation.",
