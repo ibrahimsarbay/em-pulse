@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-25T09:30:48.540Z",
-  "totalDays": 84,
+  "updatedAt": "2026-09-26T09:15:48.552Z",
+  "totalDays": 85,
   "raw": [
     {
       "date": "2026-07-04",
@@ -841,9 +841,31 @@
       "articleType": "rct",
       "doi": "10.1016/j.chest.2026.08.050",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42762982/"
+    },
+    {
+      "date": "2026-09-26",
+      "pmid": "42790624",
+      "title": "Safety of Age-Adjusted and Clinical Probability-Adjusted D-dimer Cut-offs in Suspected Pulmonary Embolism: A Systematic Review and Meta-Analysis.",
+      "journal": "Chest",
+      "score": 69,
+      "articleType": "meta-analysis",
+      "doi": "10.1016/j.chest.2026.09.030",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42790624/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42790624",
+      "title": "Safety of Age-Adjusted and Clinical Probability-Adjusted D-dimer Cut-offs in Suspected Pulmonary Embolism: A Systematic Review and Meta-Analysis.",
+      "journal": "Chest",
+      "articleType": "meta-analysis",
+      "doi": "10.1016/j.chest.2026.09.030",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42790624/",
+      "score": 69,
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "days": 1
+    },
     {
       "pmid": "42762982",
       "title": "Multicomponent Pulmonary Rehabilitation for Prolonged Mechanical Ventilation in Patients Aged 80 Years or Older: A Randomized Controlled Trial.",
