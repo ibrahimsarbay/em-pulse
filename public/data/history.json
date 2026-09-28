@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-27T09:55:33.112Z",
-  "totalDays": 86,
+  "updatedAt": "2026-09-28T10:45:23.366Z",
+  "totalDays": 87,
   "raw": [
     {
       "date": "2026-07-04",
@@ -861,6 +861,16 @@
       "articleType": "meta-analysis",
       "doi": "10.1016/j.chest.2026.09.030",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42790624/"
+    },
+    {
+      "date": "2026-09-28",
+      "pmid": "42790624",
+      "title": "Safety of Age-Adjusted and Clinical Probability-Adjusted D-dimer Cut-offs in Suspected Pulmonary Embolism: A Systematic Review and Meta-Analysis.",
+      "journal": "Chest",
+      "score": 67,
+      "articleType": "meta-analysis",
+      "doi": "10.1016/j.chest.2026.09.030",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42790624/"
     }
   ],
   "streaks": [
@@ -873,8 +883,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42790624/",
       "score": 69,
       "startDate": "2026-09-26",
-      "endDate": "2026-09-27",
-      "days": 2
+      "endDate": "2026-09-28",
+      "days": 3
     },
     {
       "pmid": "42762982",
