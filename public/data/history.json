@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-29T10:33:24.096Z",
-  "totalDays": 88,
+  "updatedAt": "2026-09-30T10:23:30.764Z",
+  "totalDays": 89,
   "raw": [
     {
       "date": "2026-07-04",
@@ -881,6 +881,16 @@
       "articleType": "guideline",
       "doi": "10.1161/CIR.0000000000001472",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42804570/"
+    },
+    {
+      "date": "2026-09-30",
+      "pmid": "42804570",
+      "title": "2026 AHA/ACC/ACS/ASNC/HRS/SCA/SCCT/SCMR/SVM Guideline for Perioperative Cardiovascular Management for Noncardiac Surgery: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
+      "journal": "Circulation",
+      "score": 73,
+      "articleType": "guideline",
+      "doi": "10.1161/CIR.0000000000001472",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42804570/"
     }
   ],
   "streaks": [
@@ -893,8 +903,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42804570/",
       "score": 74,
       "startDate": "2026-09-29",
-      "endDate": "2026-09-29",
-      "days": 1
+      "endDate": "2026-09-30",
+      "days": 2
     },
     {
       "pmid": "42790624",
