@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-05T11:19:45.510Z",
-  "totalDays": 94,
+  "updatedAt": "2026-10-06T11:09:06.611Z",
+  "totalDays": 95,
   "raw": [
     {
       "date": "2026-07-04",
@@ -941,9 +941,31 @@
       "articleType": "guideline",
       "doi": "10.1161/CIR.0000000000001472",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42804570/"
+    },
+    {
+      "date": "2026-10-06",
+      "pmid": "42817893",
+      "title": "Updated Meta-Analysis of Left Atrial Appendage Closure Versus Oral Anticoagulation to Prevent Stroke in Atrial Fibrillation.",
+      "journal": "Stroke",
+      "score": 65,
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.126.057089",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42817893/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42817893",
+      "title": "Updated Meta-Analysis of Left Atrial Appendage Closure Versus Oral Anticoagulation to Prevent Stroke in Atrial Fibrillation.",
+      "journal": "Stroke",
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.126.057089",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42817893/",
+      "score": 65,
+      "startDate": "2026-10-06",
+      "endDate": "2026-10-06",
+      "days": 1
+    },
     {
       "pmid": "42804570",
       "title": "2026 AHA/ACC/ACS/ASNC/HRS/SCA/SCCT/SCMR/SVM Guideline for Perioperative Cardiovascular Management for Noncardiac Surgery: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
