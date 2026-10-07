@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-06T11:09:06.611Z",
-  "totalDays": 95,
+  "updatedAt": "2026-10-07T10:57:41.556Z",
+  "totalDays": 96,
   "raw": [
     {
       "date": "2026-07-04",
@@ -951,9 +951,31 @@
       "articleType": "meta-analysis",
       "doi": "10.1161/STROKEAHA.126.057089",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42817893/"
+    },
+    {
+      "date": "2026-10-07",
+      "pmid": "42838369",
+      "title": "Long-term Outcomes after Fontan Single Ventricle Palliation: A Systematic Review and Meta-Analysis of Regional Registry Data.",
+      "journal": "The Annals of thoracic surgery",
+      "score": 64,
+      "articleType": "meta-analysis",
+      "doi": "10.1016/j.athoracsur.2026.09.038",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42838369/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42838369",
+      "title": "Long-term Outcomes after Fontan Single Ventricle Palliation: A Systematic Review and Meta-Analysis of Regional Registry Data.",
+      "journal": "The Annals of thoracic surgery",
+      "articleType": "meta-analysis",
+      "doi": "10.1016/j.athoracsur.2026.09.038",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42838369/",
+      "score": 64,
+      "startDate": "2026-10-07",
+      "endDate": "2026-10-07",
+      "days": 1
+    },
     {
       "pmid": "42817893",
       "title": "Updated Meta-Analysis of Left Atrial Appendage Closure Versus Oral Anticoagulation to Prevent Stroke in Atrial Fibrillation.",
