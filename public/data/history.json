@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-10T10:30:58.409Z",
-  "totalDays": 99,
+  "updatedAt": "2026-10-11T10:43:12.108Z",
+  "totalDays": 100,
   "raw": [
     {
       "date": "2026-07-04",
@@ -991,6 +991,16 @@
       "articleType": "meta-analysis",
       "doi": "10.1016/j.athoracsur.2026.09.038",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42838369/"
+    },
+    {
+      "date": "2026-10-11",
+      "pmid": "42838369",
+      "title": "Long-term Outcomes after Fontan Single Ventricle Palliation: A Systematic Review and Meta-Analysis of Regional Registry Data.",
+      "journal": "The Annals of thoracic surgery",
+      "score": 60,
+      "articleType": "meta-analysis",
+      "doi": "10.1016/j.athoracsur.2026.09.038",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42838369/"
     }
   ],
   "streaks": [
@@ -1003,8 +1013,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42838369/",
       "score": 64,
       "startDate": "2026-10-07",
-      "endDate": "2026-10-10",
-      "days": 4
+      "endDate": "2026-10-11",
+      "days": 5
     },
     {
       "pmid": "42817893",
