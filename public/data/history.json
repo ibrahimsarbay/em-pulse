@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-12T13:51:59.196Z",
-  "totalDays": 101,
+  "updatedAt": "2026-10-13T11:36:32.562Z",
+  "totalDays": 102,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1011,9 +1011,31 @@
       "articleType": "meta-analysis",
       "doi": "10.1016/j.athoracsur.2026.09.038",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42838369/"
+    },
+    {
+      "date": "2026-10-13",
+      "pmid": "42864673",
+      "title": "Prophylactic high-flow nasal oxygen vs. conventional oxygen for prevention of postoperative respiratory complications: a randomized trial.",
+      "journal": "Critical care (London, England)",
+      "score": 60,
+      "articleType": "rct",
+      "doi": "10.1186/s13054-026-06205-4",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42864673/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42864673",
+      "title": "Prophylactic high-flow nasal oxygen vs. conventional oxygen for prevention of postoperative respiratory complications: a randomized trial.",
+      "journal": "Critical care (London, England)",
+      "articleType": "rct",
+      "doi": "10.1186/s13054-026-06205-4",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42864673/",
+      "score": 60,
+      "startDate": "2026-10-13",
+      "endDate": "2026-10-13",
+      "days": 1
+    },
     {
       "pmid": "42838369",
       "title": "Long-term Outcomes after Fontan Single Ventricle Palliation: A Systematic Review and Meta-Analysis of Regional Registry Data.",
