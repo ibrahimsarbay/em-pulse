@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-13T11:36:32.562Z",
-  "totalDays": 102,
+  "updatedAt": "2026-10-14T09:24:22.314Z",
+  "totalDays": 103,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1021,9 +1021,31 @@
       "articleType": "rct",
       "doi": "10.1186/s13054-026-06205-4",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42864673/"
+    },
+    {
+      "date": "2026-10-14",
+      "pmid": "42866880",
+      "title": "Thrombolysis in the Delayed Treatment Window for Acute Ischemic Stroke: Updated Systematic Review and Meta-Analysis.",
+      "journal": "Stroke",
+      "score": 69,
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.126.058069",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42866880/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42866880",
+      "title": "Thrombolysis in the Delayed Treatment Window for Acute Ischemic Stroke: Updated Systematic Review and Meta-Analysis.",
+      "journal": "Stroke",
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.126.058069",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42866880/",
+      "score": 69,
+      "startDate": "2026-10-14",
+      "endDate": "2026-10-14",
+      "days": 1
+    },
     {
       "pmid": "42864673",
       "title": "Prophylactic high-flow nasal oxygen vs. conventional oxygen for prevention of postoperative respiratory complications: a randomized trial.",
