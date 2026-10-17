@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-16T08:54:53.580Z",
-  "totalDays": 105,
+  "updatedAt": "2026-10-17T08:26:56.767Z",
+  "totalDays": 106,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1051,6 +1051,16 @@
       "articleType": "meta-analysis",
       "doi": "10.1111/acem.70422",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42872895/"
+    },
+    {
+      "date": "2026-10-17",
+      "pmid": "42872895",
+      "title": "Conservative Versus Higher Oxygen Targets Post-Cardiac Arrest: A Systematic Review, Meta-Analysis, and Trial Sequential Analysis.",
+      "journal": "Academic emergency medicine : official journal of the Society for Academic Emergency Medicine",
+      "score": 67,
+      "articleType": "meta-analysis",
+      "doi": "10.1111/acem.70422",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42872895/"
     }
   ],
   "streaks": [
@@ -1063,8 +1073,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42872895/",
       "score": 69,
       "startDate": "2026-10-15",
-      "endDate": "2026-10-16",
-      "days": 2
+      "endDate": "2026-10-17",
+      "days": 3
     },
     {
       "pmid": "42866880",
