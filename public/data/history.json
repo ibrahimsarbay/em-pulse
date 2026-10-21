@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-20T09:18:35.295Z",
-  "totalDays": 109,
+  "updatedAt": "2026-10-21T09:15:28.910Z",
+  "totalDays": 110,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1091,9 +1091,31 @@
       "articleType": "meta-analysis",
       "doi": "10.1111/acem.70422",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42872895/"
+    },
+    {
+      "date": "2026-10-21",
+      "pmid": "42901411",
+      "title": "The Society of Thoracic Surgeons (2026) Expert Consensus Document on Management of Borderline Left Heart Excluding Unbalanced Atrioventricular Septal Defect and Strategies for Biventricular Conversion.",
+      "journal": "The Annals of thoracic surgery",
+      "score": 69,
+      "articleType": "guideline",
+      "doi": "10.1016/j.athoracsur.2026.09.059",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42901411/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42901411",
+      "title": "The Society of Thoracic Surgeons (2026) Expert Consensus Document on Management of Borderline Left Heart Excluding Unbalanced Atrioventricular Septal Defect and Strategies for Biventricular Conversion.",
+      "journal": "The Annals of thoracic surgery",
+      "articleType": "guideline",
+      "doi": "10.1016/j.athoracsur.2026.09.059",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42901411/",
+      "score": 69,
+      "startDate": "2026-10-21",
+      "endDate": "2026-10-21",
+      "days": 1
+    },
     {
       "pmid": "42872895",
       "title": "Conservative Versus Higher Oxygen Targets Post-Cardiac Arrest: A Systematic Review, Meta-Analysis, and Trial Sequential Analysis.",
