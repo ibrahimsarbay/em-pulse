@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-22T09:18:17.717Z",
-  "totalDays": 111,
+  "updatedAt": "2026-10-23T09:13:34.161Z",
+  "totalDays": 112,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1111,6 +1111,16 @@
       "articleType": "guideline",
       "doi": "10.1016/j.athoracsur.2026.09.059",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42901411/"
+    },
+    {
+      "date": "2026-10-23",
+      "pmid": "42901411",
+      "title": "The Society of Thoracic Surgeons (2026) Expert Consensus Document on Management of Borderline Left Heart Excluding Unbalanced Atrioventricular Septal Defect and Strategies for Biventricular Conversion.",
+      "journal": "The Annals of thoracic surgery",
+      "score": 67,
+      "articleType": "guideline",
+      "doi": "10.1016/j.athoracsur.2026.09.059",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42901411/"
     }
   ],
   "streaks": [
@@ -1123,8 +1133,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42901411/",
       "score": 69,
       "startDate": "2026-10-21",
-      "endDate": "2026-10-22",
-      "days": 2
+      "endDate": "2026-10-23",
+      "days": 3
     },
     {
       "pmid": "42872895",
