@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-23T09:13:34.161Z",
-  "totalDays": 112,
+  "updatedAt": "2026-10-24T08:47:08.914Z",
+  "totalDays": 113,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1121,9 +1121,31 @@
       "articleType": "guideline",
       "doi": "10.1016/j.athoracsur.2026.09.059",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42901411/"
+    },
+    {
+      "date": "2026-10-24",
+      "pmid": "42914522",
+      "title": "Guideline adherence to invasive mediastinal staging in contemporary resectable NSCLC trials: a systematic review.",
+      "journal": "Thorax",
+      "score": 66,
+      "articleType": "systematic-review",
+      "doi": "10.1136/thorax-2026-224997",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42914522/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42914522",
+      "title": "Guideline adherence to invasive mediastinal staging in contemporary resectable NSCLC trials: a systematic review.",
+      "journal": "Thorax",
+      "articleType": "systematic-review",
+      "doi": "10.1136/thorax-2026-224997",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42914522/",
+      "score": 66,
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "days": 1
+    },
     {
       "pmid": "42901411",
       "title": "The Society of Thoracic Surgeons (2026) Expert Consensus Document on Management of Borderline Left Heart Excluding Unbalanced Atrioventricular Septal Defect and Strategies for Biventricular Conversion.",
