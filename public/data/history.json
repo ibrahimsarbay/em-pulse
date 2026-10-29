@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-28T10:28:00.440Z",
-  "totalDays": 117,
+  "updatedAt": "2026-10-29T10:47:50.275Z",
+  "totalDays": 118,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1171,6 +1171,16 @@
       "articleType": "systematic-review",
       "doi": "10.1136/thorax-2026-224997",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42914522/"
+    },
+    {
+      "date": "2026-10-29",
+      "pmid": "42914522",
+      "title": "Guideline adherence to invasive mediastinal staging in contemporary resectable NSCLC trials: a systematic review.",
+      "journal": "Thorax",
+      "score": 61,
+      "articleType": "systematic-review",
+      "doi": "10.1136/thorax-2026-224997",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42914522/"
     }
   ],
   "streaks": [
@@ -1183,8 +1193,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42914522/",
       "score": 66,
       "startDate": "2026-10-24",
-      "endDate": "2026-10-28",
-      "days": 5
+      "endDate": "2026-10-29",
+      "days": 6
     },
     {
       "pmid": "42901411",
