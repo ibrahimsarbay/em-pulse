@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-29T10:47:50.275Z",
-  "totalDays": 118,
+  "updatedAt": "2026-10-30T10:46:58.321Z",
+  "totalDays": 119,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1181,9 +1181,31 @@
       "articleType": "systematic-review",
       "doi": "10.1136/thorax-2026-224997",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42914522/"
+    },
+    {
+      "date": "2026-10-30",
+      "pmid": "42953941",
+      "title": "Comparative Safety and Efficacy of Oral Anticoagulants in Patients With Atrial Fibrillation and Prior Ischemic Stroke: A Systematic Review and Network Meta-Analysis of Randomized-Controlled Clinical Trials.",
+      "journal": "Stroke",
+      "score": 69,
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.126.056981",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42953941/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42953941",
+      "title": "Comparative Safety and Efficacy of Oral Anticoagulants in Patients With Atrial Fibrillation and Prior Ischemic Stroke: A Systematic Review and Network Meta-Analysis of Randomized-Controlled Clinical Trials.",
+      "journal": "Stroke",
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.126.056981",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42953941/",
+      "score": 69,
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "days": 1
+    },
     {
       "pmid": "42914522",
       "title": "Guideline adherence to invasive mediastinal staging in contemporary resectable NSCLC trials: a systematic review.",
