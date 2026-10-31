@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-30T10:46:58.321Z",
-  "totalDays": 119,
+  "updatedAt": "2026-10-31T10:16:13.317Z",
+  "totalDays": 120,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1191,6 +1191,16 @@
       "articleType": "meta-analysis",
       "doi": "10.1161/STROKEAHA.126.056981",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42953941/"
+    },
+    {
+      "date": "2026-10-31",
+      "pmid": "42953941",
+      "title": "Comparative Safety and Efficacy of Oral Anticoagulants in Patients With Atrial Fibrillation and Prior Ischemic Stroke: A Systematic Review and Network Meta-Analysis of Randomized-Controlled Clinical Trials.",
+      "journal": "Stroke",
+      "score": 68,
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.126.056981",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42953941/"
     }
   ],
   "streaks": [
@@ -1203,8 +1213,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42953941/",
       "score": 69,
       "startDate": "2026-10-30",
-      "endDate": "2026-10-30",
-      "days": 1
+      "endDate": "2026-10-31",
+      "days": 2
     },
     {
       "pmid": "42914522",
