@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-04T11:58:18.778Z",
-  "totalDays": 124,
+  "updatedAt": "2026-11-06T11:57:56.833Z",
+  "totalDays": 125,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1241,9 +1241,31 @@
       "articleType": "meta-analysis",
       "doi": "10.1161/STROKEAHA.126.056981",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42953941/"
+    },
+    {
+      "date": "2026-11-06",
+      "pmid": "42987187",
+      "title": "Persistent gaps in health-related quality of life measures for older adult trauma patients: A systematic review.",
+      "journal": "The journal of trauma and acute care surgery",
+      "score": 66,
+      "articleType": "systematic-review",
+      "doi": "10.1097/TA.0000000000005219",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42987187/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42987187",
+      "title": "Persistent gaps in health-related quality of life measures for older adult trauma patients: A systematic review.",
+      "journal": "The journal of trauma and acute care surgery",
+      "articleType": "systematic-review",
+      "doi": "10.1097/TA.0000000000005219",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42987187/",
+      "score": 66,
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "days": 1
+    },
     {
       "pmid": "42953941",
       "title": "Comparative Safety and Efficacy of Oral Anticoagulants in Patients With Atrial Fibrillation and Prior Ischemic Stroke: A Systematic Review and Network Meta-Analysis of Randomized-Controlled Clinical Trials.",
