@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-06T11:57:56.833Z",
-  "totalDays": 125,
+  "updatedAt": "2026-11-07T10:57:31.681Z",
+  "totalDays": 126,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1251,6 +1251,16 @@
       "articleType": "systematic-review",
       "doi": "10.1097/TA.0000000000005219",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42987187/"
+    },
+    {
+      "date": "2026-11-07",
+      "pmid": "42987187",
+      "title": "Persistent gaps in health-related quality of life measures for older adult trauma patients: A systematic review.",
+      "journal": "The journal of trauma and acute care surgery",
+      "score": 65,
+      "articleType": "systematic-review",
+      "doi": "10.1097/TA.0000000000005219",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42987187/"
     }
   ],
   "streaks": [
@@ -1263,8 +1273,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42987187/",
       "score": 66,
       "startDate": "2026-11-06",
-      "endDate": "2026-11-06",
-      "days": 1
+      "endDate": "2026-11-07",
+      "days": 2
     },
     {
       "pmid": "42953941",
