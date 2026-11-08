@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-07T10:57:31.681Z",
-  "totalDays": 126,
+  "updatedAt": "2026-11-08T11:10:47.018Z",
+  "totalDays": 127,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1261,9 +1261,31 @@
       "articleType": "systematic-review",
       "doi": "10.1097/TA.0000000000005219",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42987187/"
+    },
+    {
+      "date": "2026-11-08",
+      "pmid": "42995612",
+      "title": "Fluid-intolerance signals as bedside safety limits during early septic shock resuscitation: a multicenter randomized trial.",
+      "journal": "Critical care (London, England)",
+      "score": 64,
+      "articleType": "rct",
+      "doi": "10.1186/s13054-026-06316-y",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42995612/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "42995612",
+      "title": "Fluid-intolerance signals as bedside safety limits during early septic shock resuscitation: a multicenter randomized trial.",
+      "journal": "Critical care (London, England)",
+      "articleType": "rct",
+      "doi": "10.1186/s13054-026-06316-y",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42995612/",
+      "score": 64,
+      "startDate": "2026-11-08",
+      "endDate": "2026-11-08",
+      "days": 1
+    },
     {
       "pmid": "42987187",
       "title": "Persistent gaps in health-related quality of life measures for older adult trauma patients: A systematic review.",
