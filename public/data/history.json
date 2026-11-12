@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-11T11:46:19.571Z",
-  "totalDays": 130,
+  "updatedAt": "2026-11-12T12:25:56.125Z",
+  "totalDays": 131,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1301,6 +1301,16 @@
       "articleType": "rct",
       "doi": "10.1186/s13054-026-06316-y",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42995612/"
+    },
+    {
+      "date": "2026-11-12",
+      "pmid": "42995612",
+      "title": "Fluid-intolerance signals as bedside safety limits during early septic shock resuscitation: a multicenter randomized trial.",
+      "journal": "Critical care (London, England)",
+      "score": 60,
+      "articleType": "rct",
+      "doi": "10.1186/s13054-026-06316-y",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42995612/"
     }
   ],
   "streaks": [
@@ -1313,8 +1323,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42995612/",
       "score": 64,
       "startDate": "2026-11-08",
-      "endDate": "2026-11-11",
-      "days": 4
+      "endDate": "2026-11-12",
+      "days": 5
     },
     {
       "pmid": "42987187",
