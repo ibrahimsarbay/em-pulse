@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-12T12:25:56.125Z",
-  "totalDays": 131,
+  "updatedAt": "2026-11-13T12:01:10.271Z",
+  "totalDays": 132,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1311,9 +1311,31 @@
       "articleType": "rct",
       "doi": "10.1186/s13054-026-06316-y",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42995612/"
+    },
+    {
+      "date": "2026-11-13",
+      "pmid": "43017770",
+      "title": "Proteomics and Risk of Incident Ischemic Stroke: Meta-Analysis of the ARIC Study and CHS.",
+      "journal": "Stroke",
+      "score": 69,
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.125.053518",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43017770/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "43017770",
+      "title": "Proteomics and Risk of Incident Ischemic Stroke: Meta-Analysis of the ARIC Study and CHS.",
+      "journal": "Stroke",
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.125.053518",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43017770/",
+      "score": 69,
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-13",
+      "days": 1
+    },
     {
       "pmid": "42995612",
       "title": "Fluid-intolerance signals as bedside safety limits during early septic shock resuscitation: a multicenter randomized trial.",
