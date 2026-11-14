@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-13T12:01:10.271Z",
-  "totalDays": 132,
+  "updatedAt": "2026-11-14T11:19:04.915Z",
+  "totalDays": 133,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1321,6 +1321,16 @@
       "articleType": "meta-analysis",
       "doi": "10.1161/STROKEAHA.125.053518",
       "url": "https://pubmed.ncbi.nlm.nih.gov/43017770/"
+    },
+    {
+      "date": "2026-11-14",
+      "pmid": "43017770",
+      "title": "Proteomics and Risk of Incident Ischemic Stroke: Meta-Analysis of the ARIC Study and CHS.",
+      "journal": "Stroke",
+      "score": 68,
+      "articleType": "meta-analysis",
+      "doi": "10.1161/STROKEAHA.125.053518",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43017770/"
     }
   ],
   "streaks": [
@@ -1333,8 +1343,8 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/43017770/",
       "score": 69,
       "startDate": "2026-11-13",
-      "endDate": "2026-11-13",
-      "days": 1
+      "endDate": "2026-11-14",
+      "days": 2
     },
     {
       "pmid": "42995612",
