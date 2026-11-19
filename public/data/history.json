@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-18T12:52:44.463Z",
-  "totalDays": 137,
+  "updatedAt": "2026-11-19T12:43:41.839Z",
+  "totalDays": 138,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1371,9 +1371,31 @@
       "articleType": "meta-analysis",
       "doi": "10.1161/STROKEAHA.125.053518",
       "url": "https://pubmed.ncbi.nlm.nih.gov/43017770/"
+    },
+    {
+      "date": "2026-11-19",
+      "pmid": "43053147",
+      "title": "Effect of megadose vitamin C in patients with sepsis: the CEMVIS randomized clinical trial.",
+      "journal": "Critical care (London, England)",
+      "score": 65,
+      "articleType": "rct",
+      "doi": "10.1186/s13054-026-06280-7",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43053147/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "43053147",
+      "title": "Effect of megadose vitamin C in patients with sepsis: the CEMVIS randomized clinical trial.",
+      "journal": "Critical care (London, England)",
+      "articleType": "rct",
+      "doi": "10.1186/s13054-026-06280-7",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43053147/",
+      "score": 65,
+      "startDate": "2026-11-19",
+      "endDate": "2026-11-19",
+      "days": 1
+    },
     {
       "pmid": "43017770",
       "title": "Proteomics and Risk of Incident Ischemic Stroke: Meta-Analysis of the ARIC Study and CHS.",
