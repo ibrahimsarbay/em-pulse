@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-19T12:43:41.839Z",
-  "totalDays": 138,
+  "updatedAt": "2026-11-20T12:40:30.580Z",
+  "totalDays": 139,
   "raw": [
     {
       "date": "2026-07-04",
@@ -1381,9 +1381,31 @@
       "articleType": "rct",
       "doi": "10.1186/s13054-026-06280-7",
       "url": "https://pubmed.ncbi.nlm.nih.gov/43053147/"
+    },
+    {
+      "date": "2026-11-20",
+      "pmid": "43058869",
+      "title": "Discordant evidence on corticosteroids in sepsis: a meta-research study.",
+      "journal": "Critical care (London, England)",
+      "score": 69,
+      "articleType": "meta-analysis",
+      "doi": "10.1186/s13054-026-06471-2",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43058869/"
     }
   ],
   "streaks": [
+    {
+      "pmid": "43058869",
+      "title": "Discordant evidence on corticosteroids in sepsis: a meta-research study.",
+      "journal": "Critical care (London, England)",
+      "articleType": "meta-analysis",
+      "doi": "10.1186/s13054-026-06471-2",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43058869/",
+      "score": 69,
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "days": 1
+    },
     {
       "pmid": "43053147",
       "title": "Effect of megadose vitamin C in patients with sepsis: the CEMVIS randomized clinical trial.",
